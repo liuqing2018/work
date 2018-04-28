@@ -1,0 +1,138 @@
+// 项目公用的样式
+
+// 右边的主框架
+.c-main {
+	height: 100%;
+	padding: 20px;
+	background: #fff;
+	overflow-y: auto;
+
+	.c-header {
+		position: relative;
+		height: 60px;
+		padding: 0 20px;
+		font-size: 18px;
+		color: #919ab7;
+		box-shadow: 0 5px 10px #e7e7e7;
+
+		& > button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	.w100p {
+		width: 100%;
+	}
+
+}
+
+.primary-color {
+	color: @brand-primary;
+}
+
+.warn-color {
+	color: @brand-warning;
+}
+
+.primary-bg {
+	background: @brand-primary;
+}
+
+.warn-bg {
+	background: @brand-warning;
+}
+
+// 侧边菜单
+.el-submenu__title {
+	font-size: 16px;
+	&:hover,
+	&.el-submenu.is-active {
+		background: #303b52;
+		color: #6c7993;
+	}
+}
+
+// 设置el的datetime输入框的宽度
+.el-date-editor.el-input, .el-date-editor.el-input__inner {
+	width: 200px;
+}
+
+// el表格
+.c-table-list {
+	padding: 30px;
+	width: 100%;
+
+	.el-table {
+		border-radius: 5px 5px 0 0;
+		border: 1px solid @border-color;
+
+		th {
+			padding: 10px 0;
+			font-size: 16px;
+			background: @brand-primary;
+			color: @color-fff;
+		}
+
+		td {
+			padding: 0;
+			font-size: 14px;
+		}
+	}
+
+	&.auth-list {
+
+		.el-table {
+			td {
+				padding: 10px 0;
+			}
+		}
+	}
+}
+
+.el-table .warning-row {
+	background: #fef1ef;
+	color: #f47564;
+}
+
+.el-table .success-row {
+	background: @brand-success;
+	color: @color-333;
+}
+
+.show-underline {
+	display: inline-block;
+	color: @brand-info;
+	border-bottom: 1px solid @brand-info;
+}
+
+.nationality-list,
+.auth-set-list {
+	.el-checkbox__label {
+		font-size: 16px;
+	}
+
+	.el-checkbox__inner {
+		width: 16px;
+		height: 16px;
+		border-color: @brand-primary;
+	}
+}
+
+.passenger-dialog-wrap {
+	.el-dialog {
+		border: 11px solid transparent;
+	}
+}
+
+.auth-set {
+	.el-dialog {
+		.radius(10px);
+		overflow: hidden;
+	}
+
+	.el-dialog__header {
+		padding: 0;
+	}
+}

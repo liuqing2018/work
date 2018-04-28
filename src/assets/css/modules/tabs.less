@@ -1,0 +1,43 @@
+/*
+* 选项卡
+*/
+.c-tabs {
+    position: relative;
+    height: 34px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid @border-color;
+    .clearfix;
+
+    h3 {
+        position: relative;
+        //top: 7px;
+        height: 34px;
+        padding: 0 15px;
+        font-size: 16px;
+        text-align: center;
+        font-weight: normal;
+        cursor: pointer;
+        line-height: 34px;
+
+        &:hover {
+            color: @brand-primary;
+            border-bottom: 3px solid @brand-primary;
+        }
+    }
+
+    li {
+        //position: relative;
+        //display: inline-block;
+        float: left;
+        //margin-right: 10px;
+        background: none;
+        //border: 1px solid red;
+    }
+
+    li.active {
+        h3 {
+            color: @brand-primary;
+            border-bottom: 3px solid @brand-primary;
+        }
+    }
+}

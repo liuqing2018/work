@@ -1,0 +1,88 @@
+.c-btn {
+    padding: 6px 15px;
+    border: none;
+    font-size: 16px;
+    color: @color-fff;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &.c-default {
+        background: none;
+        color: @color-333;
+        border: 1px solid @color-ccc;
+
+        &:hover {
+            background: @input-bg;
+            border-color: @border-color;
+        }
+    }
+
+    &.c-primary {
+        background: @brand-primary;
+        &:hover {
+            background: @brand-primary - 20%;
+            border-color: @brand-primary - 20%;
+        }
+    }
+
+    &.c-warning {
+        background: @brand-warning;
+        &:hover {
+            background: @brand-warning - 20%;
+            border-color: @brand-warning - 20%;
+        }
+    }
+
+    &.c-success {
+        background: @brand-success;
+        &:hover {
+            background: @brand-success - 20%;
+            border-color: @brand-success - 20%;
+        }
+    }
+
+    &.c-info {
+        background: @brand-info;
+        &:hover {
+            background: @brand-info - 20%;
+            border-color: @brand-info - 20%;
+        }
+    }
+
+    &.c-danger {
+        background: @brand-danger;
+        &:hover {
+            background: @brand-danger - 20%;
+            border-color: @brand-danger - 20%;
+        }
+    }
+
+
+    &.c-ghost {
+        color: @brand-primary;
+        background: none;
+        border: 1px solid @brand-primary;
+        cursor: pointer;
+
+        & > i {
+            font-size: 18px;
+        }
+
+        &:hover {
+            color: @brand-primary - 40%;
+            border-color: @brand-primary - 40%;
+        }
+
+        //&[disabled] {
+        //    cursor: not-allowed;
+        //    color: @disable-color;
+		//
+        //    i {
+        //        color: @disable-color;
+        //    }
+        //}
+    }
+}
+

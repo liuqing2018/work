@@ -1,0 +1,61 @@
+/* 表单元素 */
+
+button,
+input,
+select,
+textarea {
+    color: @text-color;
+    border: 1px solid @border-color;
+    outline: none;
+    background: @input-bg;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    .radius(6px);
+
+    /* 禁用后的样式 */
+    &[disabled] {
+        color: @disable-color;
+        border: 1px solid @border-color;
+        cursor: not-allowed;
+        background-color: @disable-bg;
+    }
+
+    /* 占位符 */
+    &::-webkit-input-placeholder {
+        color: @placeholder-color;
+    }
+
+    &:-moz-placeholder {
+        color: @placeholder-color;
+    }
+
+    &::-moz-placeholder {
+        color: @placeholder-color;
+    }
+
+    &:-ms-input-placeholder {
+        color: @placeholder-color;
+    }
+}
+
+select {
+    padding-left: 8px;
+}
+
+input {
+    padding: 1px 0 0 15px;
+    line-height: 30px;
+
+    &:focus {
+        border-color: @brand-warning;
+    }
+}
+
+textarea {
+    height: auto;
+    padding: 10px;
+    overflow: auto;
+    resize: none;
+}
+

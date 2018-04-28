@@ -1,0 +1,62 @@
+/* 表格 */
+.c-table {
+    width: 100%;
+    text-align: @table-text-algin;
+    background-color: @table-bg;
+
+    td,
+    th {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        border: 1px solid @border-color;
+    }
+
+    thead {
+        width: inherit;
+        background-color: @table-th-bg;
+
+        th,
+        td {
+            position: relative;
+            //height: 40px;
+            height: 45px;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: @table-th-text-algin;
+            color: @color-000;
+        }
+    }
+
+    tbody {
+        td {
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-align: @table-td-text-algin;
+            color: @color-333;
+        }
+
+        tr {
+            //height: 40px;
+            height: 45px;
+
+            &:nth-child(even) {
+                background-color: @table-td-bg;
+            }
+        }
+    }
+
+    &.c-table-hover {
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: @table-td-hover-color;
+                }
+
+                &:hover {
+                    background-color: @table-td-hover-color;
+                }
+            }
+        }
+    }
+}

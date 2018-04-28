@@ -1,0 +1,88 @@
+.form-list {
+    /* 左边说明文字，如用户名、开始时间*/
+    @labelWidth1: 80px; // 4个字
+    @labelWidth2: 110px; // 6个字
+    @labelWidth3: 140px; // 8个字
+    @labelWidth4: 200px; // 12个字
+    padding: 20px;
+    background: @color-fff;
+
+    // 列或者行
+    .form-item,
+    & > li {
+        position: relative;
+        padding: 0;
+        margin-bottom: 10px;
+        display: flex;
+
+        // 左边文字标签
+        .form-label,
+        & > label {
+            width: @labelWidth1;
+            margin: 5px 5px 0 0;
+            font-weight: normal;
+            font-size: 14px;
+            color: @color-333;
+            text-align: right;
+        }
+
+        // 右边输入区域控制
+        .form-ctrl,
+        & > div {
+            position: relative;
+            width: calc(~"100% - @{labelWidth1}");
+            color: @color-666;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+        }
+    }
+
+    &.medium {
+        .form-item,
+        & > li {
+            .form-label,
+            & > label  {
+                width: @labelWidth2;
+            }
+            .form-ctrl {
+                width: calc(~"100% - @{labelWidth2}");
+            }
+        }
+
+
+    }
+
+    &.big {
+        .form-item,
+        & > li {
+            .form-label,
+            & > label  {
+                width: @labelWidth3;
+            }
+            .form-ctrl {
+                width: calc(~"100% - @{labelWidth3}");
+
+            }
+        }
+    }
+
+    &.max {
+        .form-item,
+        & > li {
+            .form-label,
+            & > label  {
+                width: @labelWidth4;
+            }
+            .form-ctrl {
+                width: calc(~"100% - @{labelWidth4}");
+            }
+        }
+    }
+}
+
+
+

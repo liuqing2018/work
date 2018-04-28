@@ -1,0 +1,36 @@
+{
+    "status": 0,
+    "message": "查询成功！",
+    "result": [
+        {
+            "name": "Link",
+            "sex": 1,
+            "age": 11
+        },
+        {
+            "name": "Leo",
+            "sex": 1,
+            "age": 22
+        },
+        {
+            "name": "jobs",
+            "sex": 1,
+            "age": 33
+        },
+        {
+            "name": "lucy",
+            "sex": 1,
+            "age": 444
+        },
+        {
+            "name": "Heo",
+            "sex": 1,
+            "age": 55
+        },
+        {
+            "name": "Jike",
+            "sex": 1,
+            "age": 66
+        }
+    ]
+}

@@ -1,0 +1,200 @@
+/*
+* 公用类
+*/
+
+// 清除浮动
+.clearfix {
+    _zoom: 1;
+
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        font-size: 0;
+        visibility: hidden;
+        clear: both;
+    }
+}
+
+// 位移水平垂直都居中
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    .translate(-50%, -50%);
+}
+
+// 位移水平居中
+.x-center {
+    position: absolute;
+    left: 50%;
+    .translate(-50%);
+}
+
+// 位移垂直居中
+.y-center {
+    position: absolute;
+    top: 50%;
+    .translate(0, -50%);
+}
+
+
+
+.inner {
+    height: 100%;
+}
+
+
+// 必填项
+.need,
+.need-before:before,
+.need-after:after {
+    font-style: normal;
+    content: "*";
+    font-size: 12px;
+    vertical-align: middle;
+    color: @brand-danger
+}
+
+// 星号在前面
+.need-before {
+    &:before {
+        padding-right: 2px;
+    }
+}
+
+// 星号在后面
+.need-after {
+    &:after {
+        padding-left: 2px;
+    }
+}
+
+// 左浮动
+.fl {
+    float: left !important;
+}
+
+// 右浮动
+.fr {
+    float: right !important;
+}
+
+// 文字居中
+.t-center {
+    text-align: center;
+}
+
+// 文字居左
+.t-left {
+    text-align: left;
+}
+
+// 文字居右
+.t-right {
+    text-align: right;
+}
+
+// 外边距
+.m-10 {
+    margin: 10px;
+}
+
+.m-20 {
+    margin: 20px;
+}
+
+.m-top-10 {
+    margin-top: 10px;
+}
+
+.m-right-10 {
+    margin-right: 10px;
+}
+
+.m-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.m-left-10 {
+    margin-left: 10px;
+}
+
+.m-top-20 {
+    margin-top: 20px;
+}
+
+.m-right-20 {
+    margin-right: 20px;
+}
+
+.m-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.m-left-20 {
+    margin-left: 20px;
+}
+
+// 内边距
+.p-10 {
+    padding: 10px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.p-top-10 {
+    padding-top: 10px;
+}
+
+.p-right-10 {
+    padding-right: 10px;
+}
+
+.p-bottom-10 {
+    padding-bottom: 10px;
+}
+
+.p-left-10 {
+    padding-left: 10px;
+}
+
+.p-top-20 {
+    padding-top: 20px;
+}
+
+.p-right-20 {
+    padding-right: 20px;
+}
+
+.p-bottom-20 {
+    padding-bottom: 20px;
+}
+
+.p-left-20 {
+    padding-left: 20px;
+}
+
+/* 字体图标 */
+[class^="el-icon-m-"],
+[class*="el-icon-m-"] {
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+
+    &.active {
+        color: @brand-primary;
+    }
+}
+
+// vue防止直接显示标签
+[v-cloak] {
+    display: none;
+}
+
