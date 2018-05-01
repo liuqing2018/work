@@ -1,5 +1,7 @@
 <template>
     <div>
+        <button class="c-btn c-primary" @click="handleClick">我是按钮</button>
+        <div>===={{num}}</div>
         <h3>my- todo</h3>
         <m-tree :data="data"></m-tree>
     </div>
@@ -9,6 +11,7 @@
     export default {
         data () {
             return {
+                num: 12,
                 data: {
                     title: '我是菜单1',
                     children: [
@@ -60,6 +63,12 @@
         },
         components: {
             mTree
+        },
+        methods: {
+            handleClick () {
+                console.log(this.num);
+                this.num = this.num + 1;
+            }
         }
     };
 </script>

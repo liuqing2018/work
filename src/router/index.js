@@ -8,12 +8,18 @@ const router = new Router({
         {
             path: '/',
             name: 'HelloWorld',
-            component: resolve => require(['@/views/main/index.vue'], resolve)
+            component: resolve => require(['@/views/main/index.vue'], resolve),
+            meta: {
+                title: '工作台'
+            }
         },
         {
             path: '/login',
             name: 'login',
-            component: resolve => require(['@/views/main/index.vue'], resolve)
+            component: resolve => require(['@/views/main/index.vue'], resolve),
+            meta: {
+                title: '登录'
+            }
         },
         {
             path: '/main',
@@ -23,27 +29,42 @@ const router = new Router({
                 {
                     path: '/',
                     name: 'mian-index',
-                    component: resolve => require(['@/views/auth/index.vue'], resolve)
+                    component: resolve => require(['@/views/auth/index.vue'], resolve),
+                    meta: {
+                        title: '工作台'
+                    }
                 },
                 {
                     path: 'index',
                     name: 'mian-index',
-                    component: resolve => require(['@/views/auth/index.vue'], resolve)
+                    component: resolve => require(['@/views/auth/index.vue'], resolve),
+                    meta: {
+                        title: '权限管理'
+                    }
                 },
                 {
                     path: 'auth', // 权限管理-角色管理
                     name: 'auth',
-                    component: resolve => require(['@/views/auth/index.vue'], resolve)
+                    component: resolve => require(['@/views/auth/index.vue'], resolve),
+                    meta: {
+                        title: '角色管理'
+                    }
                 },
                 {
                     path: 'user', // 权限管理-用户管理
                     name: 'user',
-                    component: resolve => require(['@/views/auth/user.vue'], resolve)
+                    component: resolve => require(['@/views/auth/user.vue'], resolve),
+                    meta: {
+                        title: '用户管理'
+                    }
                 },
                 {
                     path: 'my',
                     name: 'todo',
-                    component: resolve => require(['@/views/my/todo.vue'], resolve)
+                    component: resolve => require(['@/views/my/todo.vue'], resolve),
+                    meta: {
+                        title: '代办事项'
+                    }
                 },
                 {
                     path: '403',

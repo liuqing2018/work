@@ -6,7 +6,8 @@
                 <h3 v-show="!vm.isMenuVisible">平台Demo</h3>
             </div>
             <div class="main-menu">
-                <el-menu :default-active="vm.activeIndex" class="main-menu-box" :collapse="vm.isMenuVisible"
+                <!--<el-menu :default-active="activeMenu" class="main-menu-box" :collapse="vm.isMenuVisible"-->
+                <el-menu :default-active="$route.path" class="main-menu-box" :collapse="vm.isMenuVisible"
                          :unique-opened="true" text-color="#6c7993" active-text-color="#555e71">
                     <el-submenu :index="item.id" :key="item.id" v-for="(item) in menuList"
                                 v-if="item.second && item.second.length > 0">
@@ -34,50 +35,25 @@
             <div class="expand" @click="handleMenuToggle();">
                 <i :class="{'el-icon-m-sanjiao-copy': vm.isMenuVisible, 'el-icon-m-sanjiao': !vm.isMenuVisible}"></i>
             </div>
-
-            <div class="user-options">
-                <div class="option-item">
-                    <el-tooltip class="item" effect="dark" :disabled="vm.isSubMenuVisible" content="超级管理员"
-                                placement="top" @mouseenter.native="handleShowSubMenu"
-                                @mouseleave.native="handleHideSubMenu">
-                        <button type="button">
-                            <i class="el-icon-m-yonghu1"></i>
-                        </button>
-                    </el-tooltip>
-                    <el-tooltip class="item" effect="dark" content="修改密码" placement="top">
-                        <button type="button" v-show="!vm.isMenuVisible" @click="handleShowDialog">
-                            <i class="el-icon-m-mima"></i>
-                        </button>
-                    </el-tooltip>
-                    <el-tooltip class="item" effect="dark" content="退出系统" placement="top">
-                        <button type="button" v-show="!vm.isMenuVisible" @click="handleQuit">
-                            <i class="el-icon-m-quit"></i>
-                        </button>
-                    </el-tooltip>
-                </div>
-
-                <ul class="option-item-extends" v-show="vm.isSubMenuVisible" @mouseenter="handleShowSubMenu"
-                    @mouseleave="handleHideSubMenu">
-                    <li>超级管理员</li>
-                    <li @click="handleShowDialog">修改密码</li>
-                    <li @click="handleQuit">退出</li>
-                </ul>
-            </div>
         </div>
 
         <div class="main-right">
             <div>
-                <h1>临时的项目</h1>
-                <el-tabs v-model="editableTabsValue2" type="card" closable editable addable @tab-remove="removeTab" @tab-click="tabClick">
+                <el-tabs v-model="activeMenu" type="card" closable @tab-remove="removeTab" @tab-click="tabClick">
                     <el-tab-pane
-                            v-for="(item) in editableTabs2"
-                            :key="item.name"
-                            :label="item.title"
-                            :name="item.name"
+                        v-for="(item) in tabList"
+                        :key="item.name"
+                        :label="item.title"
+                        :name="item.path"
                     >
-                        {{item.content}}
+                        {{item.path}}==
                     </el-tab-pane>
                 </el-tabs>
+            </div>
+            <div>
+                <ul>
+                    <li v-for="(item, index) in tabList" :key="index">{{item}}</li>
+                </ul>
             </div>
             <router-view></router-view>
         </div>
@@ -107,77 +83,18 @@
     @import "./index.less";
 </style>
 <script>
+    import { mapState, mapActions } from 'vuex';
     export default {
         name: 'main-content',
         data () {
             return {
-                editableTabsValue2: '2',
-                editableTabs2: [{
-                    title: 'Tab 1',
-                    name: '1',
-                    content: 'Tab 1 content'
-                }, {
-                    title: 'Tab 2',
-                    name: '2',
-                    content: 'Tab 2 content'
-                }],
                 tabIndex: 2,
+                activeMenu1: '',
 
                 vm: {
-                    isMenuVisible: false,
-                    isSubMenuVisible: false,
-                    // activeIndex: window.sessionStorage.activeIndex || '11',
-                    activeIndex: '11'
+                    isMenuVisible: false
                 },
                 timer: null,
-                menuList: [
-                    {
-                        id: '1',
-                        name: '个人桌面',
-                        icon: 'el-icon-m-shangbaoxinxi',
-                        url: '/main',
-                        second: [
-                            {
-                                id: '11',
-                                name: '代办事项',
-                                icon: 'el-icon-m-yuan',
-                                url: '/main'
-                            },
-                            {
-                                id: '12',
-                                name: '已办事项',
-                                icon: 'el-icon-m-yuan',
-                                url: '/main'
-                            }
-                        ]
-                    },
-                    {
-                        id: '2',
-                        name: '系统管理',
-                        icon: 'el-icon-m-ziyuan',
-                        url: '/main/auth',
-                        second: [
-                            {
-                                id: '21',
-                                name: '用户管理',
-                                icon: 'el-icon-m-yuan',
-                                url: '/main/user'
-                            },
-                            {
-                                id: '22',
-                                name: '权限管理',
-                                icon: 'el-icon-m-yuan',
-                                url: '/main/auth'
-                            },
-                            {
-                                id: '23',
-                                name: '代办事项',
-                                icon: 'el-icon-m-yuan',
-                                url: '/main/my'
-                            }
-                        ]
-                    }
-                ],
                 dialog: {
                     visible: false,
                     title: ''
@@ -188,37 +105,35 @@
                 }
             };
         },
+        computed: {
+            ...mapState({
+                menuList: state => state.main.menuList,
+                // activeMenu: state => state.main.activeMenu,
+                tabList: state => state.main.tabList
+            }),
+
+            activeMenu: {
+                get () {
+                    return this.$store.state.main.activeMenu;
+                },
+                set (val) {
+                    this.$store.commit('setActiveTab', val);
+                }
+            }
+        },
         methods: {
+            ...mapActions([
+                'getMenu',
+                'addTabMenu'
+            ]),
+
             tabClick (item, value) {
                 console.log(item);
                 console.log(value);
             },
-            addTab (targetName) {
-                let newTabName = ++this.tabIndex + '';
-                this.editableTabs2.push({
-                    title: 'New Tab',
-                    name: newTabName,
-                    content: 'New Tab content'
-                });
-                this.editableTabsValue2 = newTabName;
-            },
-            removeTab (targetName) {
-                console.log(targetName);
-                let tabs = this.editableTabs2;
-                let activeName = this.editableTabsValue2;
-                if (activeName === targetName) {
-                    tabs.forEach((tab, index) => {
-                        if (tab.name === targetName) {
-                            let nextTab = tabs[index + 1] || tabs[index - 1];
-                            if (nextTab) {
-                                activeName = nextTab.name;
-                            }
-                        }
-                    });
-                }
 
-                this.editableTabsValue2 = activeName;
-                this.editableTabs2 = tabs.filter(tab => tab.name !== targetName);
+            removeTab (tabName) {
+                this.$store.commit('removeTabMenu', tabName);
             },
 
             handleOpen (key, keyPath) {
@@ -232,9 +147,9 @@
                 this.vm.isMenuVisible = !this.vm.isMenuVisible;
             },
             handleTo (item) {
-                window.sessionStorage.activeIndex = item.id;
                 this.$router.push({
-                    path: item.url
+                    path: item.url,
+                    title: item.name
                 });
             },
 
@@ -263,29 +178,33 @@
                         message: '已取消退出'
                     });
                 });
-            },
-
-            // 显示子菜单
-            handleShowSubMenu () {
-                if (this.vm.isMenuVisible) { // 已经收缩了
-                    clearTimeout(this.timer);
-                    this.vm.isSubMenuVisible = true;
-                } else {
-                    this.vm.isSubMenuVisible = false;
-                }
-            },
-
-            // 鼠标离开后2s内关闭
-            handleHideSubMenu () {
-                if (this.vm.isMenuVisible) {
-                    var _this = this;
-                    this.timer = setTimeout(function () {
-                        _this.vm.isSubMenuVisible = false;
-                    }, 500);
-                }
             }
         },
         created () {
+            this.getMenu();
+        },
+        mounted () {
+            if (!(this.$route.fullPath === '/' || this.$route.fullPath === '/main')) {
+                // 添加tab
+                // this.$store.commit('addTabMenu', this.$route);
+            } else {
+                console.log('默认页面');
+            }
+        },
+        beforeRouteUpdate (to, from, next) {
+            if (to.meta.title) {
+                document.title = to.meta.title;
+            }
+            if (this.tabList.find(tab => {
+                return tab.title === to.meta.title;
+            })) {
+                console.log('已经存在了....');
+            } else {
+                this.$store.commit('addTabMenu', {title: to.meta.title, name: to.name, path: to.path});
+                console.log('第一次打开过');
+            }
+            this.$store.commit('setActiveTab', to.path);
+            next();
         }
     };
 </script>

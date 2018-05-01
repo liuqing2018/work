@@ -9,7 +9,8 @@
 * */
 import Vue from 'vue';
 import Vuex from 'vuex';
-import user from './modules/user';
+import main from './modules/main'; // 首页
+import user from './modules/user'; // 用户信息
 Vue.use(Vuex);
 
 const debug = process.env.NODE_ENV !== 'production';
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     namespace: true,
     strict: debug,
     modules: {
+        main,
         user
     }
 });

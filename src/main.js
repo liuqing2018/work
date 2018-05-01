@@ -8,6 +8,8 @@ import { api, toast, copyObj } from './assets/js/common';
 import { http } from './assets/js/http';
 import dateUtil from './assets/js/date';
 import {
+    Table,
+    TableColumn,
     Menu,
     Submenu,
     MenuItem,
@@ -29,7 +31,8 @@ import {
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
-
+Vue.use(Table);
+Vue.use(TableColumn);
 Vue.use(Menu);
 Vue.use(Submenu);
 Vue.use(MenuItem);
