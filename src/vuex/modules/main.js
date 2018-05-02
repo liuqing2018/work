@@ -39,6 +39,7 @@ export default {
         }
     },
     actions: {
+        // 获取菜单
         getMenu: ({commit}) => {
             let menus = [
                 {
