@@ -18,6 +18,7 @@ export default {
     },
     getters: {},
     mutations: {
+        // 获取菜单
         getMenu: (state, menu) => {
             state.menuList = menu;
         },
@@ -31,6 +32,7 @@ export default {
         setActiveTab (state, tab) {
             state.activeMenu = tab;
         },
+
         // 删除选项卡
         removeTabMenu: (state, tabName) => {
             state.tabList = state.tabList.filter(item => {
