@@ -117,7 +117,7 @@
 </template>
 
 <style lang="less" scoped>
-    @import "index.less";
+    @import "../auth-management/index.less";
 </style>
 
 <script>

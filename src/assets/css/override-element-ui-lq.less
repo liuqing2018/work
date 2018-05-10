@@ -1,0 +1,61 @@
+// header搜索框的样式
+.app-header-search {
+	 .el-input-group {
+		 overflow: hidden;
+		 .radius(15px);
+		 background: @color-fff;
+		 //background: #a2e4fe;
+	 }
+
+	.el-input-group--append .el-input__inner {
+		//color: #0094da;
+		//background: #a2e4fe;
+		border: none;
+	}
+
+	 .el-input-group__append {
+		 padding: 0;
+		 background: none;
+		 border: none;
+	 }
+ }
+
+// 左边导航菜单
+.app-menu {
+	.el-submenu {
+		// 有子菜单的菜单选中
+		&.is-active {
+			//background: #e2e2e2;
+		}
+	}
+
+	.app-menu-box > div >.el-submenu.is-active > .el-submenu__title {
+		background: #e2e2e2;
+		color: @brand-primary;
+	}
+	// 有子菜单的菜单
+	.el-submenu__title {
+		&:hover {
+			background: #e2e2e2;
+			color: @brand-primary;
+		}
+	}
+
+	.el-menu {
+		// 父级内部背景颜色
+		&.el-menu--inline {
+			background: #f7f7f7;
+		}
+	}
+
+	// 子菜单
+	.el-menu-item {
+		&:hover {
+			background: #e2e2e2;
+		}
+
+		&.is-active {
+			background: #e9e9e9;
+		}
+	}
+}

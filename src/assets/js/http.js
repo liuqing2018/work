@@ -1,8 +1,6 @@
-// 配置API接口地址
 // 引用axios
 import axios from 'axios';
-import { api } from './common';
-// const root = '/';
+import { API } from './common';
 
 // 自定义判断元素类型JS
 const toType = obj => {
@@ -81,7 +79,7 @@ const apiAxios = (method, url, params, success, failure) => {
         url: url,
         data: method === 'POST' || method === 'PUT' ? params.data : null,
         params: method === 'GET' || method === 'DELETE' ? params.data : null,
-        baseURL: api,
+        baseURL: API,
         headers: params.headers,
         withCredentials: false
     }).then(res => {
@@ -106,7 +104,7 @@ const apiAxios = (method, url, params, success, failure) => {
 };
 
 // 返回在vue模板中的调用接口
-export const http = {
+const http = {
     get: function (config) {
         return apiAxios('GET', config.url, config.params, config.success, config.error);
     },
@@ -120,7 +118,9 @@ export const http = {
         return apiAxios('DELETE', config.url, config.params, config.success, config.error);
     },
     native: function (params, success, err) {
-        params.baseURL = params.baseURL || api;
+        params.baseURL = params.baseURL || API;
         axios(params).then(success).catch(err);
     }
 };
+
+export default http;

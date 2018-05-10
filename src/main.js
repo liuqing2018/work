@@ -4,12 +4,25 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import store from './vuex/index';
-import { api, toast, copyObj } from './assets/js/common';
-import { http } from './assets/js/http';
-import dateUtil from './assets/js/date';
+import filters from './filters/index'
+// import diy plugins
+import Utils from './assets/js/utils';
+
+// import element-ui modules
 import {
+    Row,
+    Col,
+    Container,
+    Main,
+    Footer,
+    Carousel,
+    CarouselItem,
+    Collapse,
+    CollapseItem,
+    Cascader,
     Table,
     TableColumn,
+    Autocomplete,
     Menu,
     Submenu,
     MenuItem,
@@ -18,6 +31,8 @@ import {
     Form,
     FormItem,
     Input,
+    Radio,
+    RadioGroup,
     Dialog,
     Checkbox,
     CheckboxButton,
@@ -31,8 +46,26 @@ import {
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
+
+// Vue.filter('trim', filters.trim);
+Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));
+
+Vue.use(Utils);
+// begin CW add component
+Vue.use(Row);
+Vue.use(Col);
+Vue.use(Container);
+Vue.use(Main);
+Vue.use(Footer);
+Vue.use(Carousel);
+Vue.use(CarouselItem);
+Vue.use(Collapse);
+Vue.use(CollapseItem);
+Vue.use(Cascader);
+// end CW add component
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Autocomplete);
 Vue.use(Menu);
 Vue.use(Submenu);
 Vue.use(MenuItem);
@@ -40,6 +73,8 @@ Vue.use(MenuItemGroup);
 Vue.use(Pagination);
 Vue.use(Form);
 Vue.use(Input);
+Vue.use(Radio);
+Vue.use(RadioGroup);
 Vue.use(FormItem);
 Vue.use(Dialog);
 Vue.use(Checkbox);
@@ -50,12 +85,7 @@ Vue.use(TabPane);
 Vue.use(Tooltip);
 Vue.use(Loading.directive);
 
-Vue.prototype.$toast = toast; // 弹框提示
-Vue.prototype.$copyObj = copyObj;
-Vue.prototype.$dateUtil = dateUtil;
-Vue.prototype.$api = api;
-Vue.prototype.$http = http;
-
+// instance
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$confirm = MessageBox.confirm;

@@ -7,8 +7,9 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            name: 'HelloWorld',
-            component: resolve => require(['@/views/main/index.vue'], resolve),
+            name: 'index',
+            // component: resolve => require(['@/views/main/index.vue'], resolve),
+            redirect: { name: 'mian-default' },
             meta: {
                 title: '工作台'
             }
@@ -28,8 +29,9 @@ const router = new Router({
             children: [
                 {
                     path: '/',
-                    name: 'mian-index',
-                    component: resolve => require(['@/views/auth/index.vue'], resolve),
+                    name: 'mian-default',
+                    // component: resolve => require(['@/views/auth-management/index.vue'], resolve),
+                    component: resolve => require(['@/views/workbench/WorkContent.vue'], resolve),
                     meta: {
                         title: '工作台'
                     }
@@ -37,7 +39,7 @@ const router = new Router({
                 {
                     path: 'index',
                     name: 'mian-index',
-                    component: resolve => require(['@/views/auth/index.vue'], resolve),
+                    component: resolve => require(['@/views/auth-management/index.vue'], resolve),
                     meta: {
                         title: '权限管理'
                     }
@@ -45,25 +47,33 @@ const router = new Router({
                 {
                     path: 'auth', // 权限管理-角色管理
                     name: 'auth',
-                    component: resolve => require(['@/views/auth/index.vue'], resolve),
+                    component: resolve => require(['@/views/auth-management/index.vue'], resolve),
                     meta: {
                         title: '角色管理'
                     }
                 },
                 {
-                    path: 'user', // 权限管理-用户管理
+                    path: 'user', // 组织管理-用户管理
                     name: 'user',
-                    component: resolve => require(['@/views/auth/user.vue'], resolve),
+                    component: resolve => require(['@/views/organization-management/user.vue'], resolve),
                     meta: {
                         title: '用户管理'
                     }
                 },
                 {
-                    path: 'my',
+                    path: 'todo',
                     name: 'todo',
-                    component: resolve => require(['@/views/my/todo.vue'], resolve),
+                    component: resolve => require(['@/views/work-flow/todo.vue'], resolve),
                     meta: {
-                        title: '代办事项'
+                        title: '待办事项'
+                    }
+                },
+                {
+                    path: 'done',
+                    name: 'done',
+                    component: resolve => require(['@/views/work-flow/done.vue'], resolve),
+                    meta: {
+                        title: '已办事项'
                     }
                 },
                 {
@@ -96,16 +106,21 @@ const router = new Router({
     ]
 });
 
-// router.beforeEach((to, from, next) => {
-//     if (to.path === '/') { // 登录页面
-//         next();
-//     } else {
-//         if (window.sessionStorage.isLogin) { // 判断有没有登录的标识
-//             next();
-//         } else {
-//             next('/'); // 跳转到登录
-//         }
-//     }
-// });
+router.beforeEach((to, from, next) => {
+    // if (to.path === '/') { // 登录页面
+    //     next();
+    // } else {
+    //     if (window.sessionStorage.isLogin) { // 判断有没有登录的标识
+    //         next();
+    //     } else {
+    //         next('/'); // 跳转到登录
+    //     }
+    // }
+    next({
+        query: {
+            aa: new Date()
+        }
+    });
+});
 
 export default router;

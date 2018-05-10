@@ -92,7 +92,7 @@ export default {
                             id: '12',
                             name: '系统管理',
                             icon: 'el-icon-m-unchecked2',
-                            url: '/main/test22',
+                            url: '/main/test1',
                             second: [
                                 {
                                     id: '121',
@@ -105,25 +105,26 @@ export default {
                                             name: '用户管理',
                                             icon: 'el-icon-m-unchecked2',
                                             url: '/main/user'
-                                        },
-                                        {
-                                            id: '1212',
-                                            name: '机构管理',
-                                            icon: 'el-icon-m-unchecked2',
-                                            url: '/main'
-                                        },
-                                        {
-                                            id: '1213',
-                                            name: '公司管理',
-                                            icon: 'el-icon-m-unchecked2',
-                                            url: '/main/t1'
-                                        },
-                                        {
-                                            id: '1214',
-                                            name: '岗位管理',
-                                            icon: 'el-icon-m-unchecked2',
-                                            url: '/main/t2'
                                         }
+                                        // ,
+                                        // {
+                                        //     id: '1212',
+                                        //     name: '机构管理',
+                                        //     icon: 'el-icon-m-unchecked2',
+                                        //     url: '/main'
+                                        // },
+                                        // {
+                                        //     id: '1213',
+                                        //     name: '公司管理',
+                                        //     icon: 'el-icon-m-unchecked2',
+                                        //     url: '/main'
+                                        // },
+                                        // {
+                                        //     id: '1214',
+                                        //     name: '岗位管理',
+                                        //     icon: 'el-icon-m-unchecked2',
+                                        //     url: '/main'
+                                        // }
                                     ]
                                 },
                                 {
@@ -138,25 +139,26 @@ export default {
                                             name: '角色管理',
                                             icon: 'el-icon-m-unchecked2',
                                             url: '/main/auth'
-                                        },
-                                        {
-                                            id: '1222',
-                                            name: '二级管理员',
-                                            icon: 'el-icon-m-unchecked2',
-                                            url: '/main/t3'
-                                        },
-                                        {
-                                            id: '1223',
-                                            name: '系统管理员',
-                                            icon: 'el-icon-m-unchecked2',
-                                            url: '/main/t4'
-                                        },
-                                        {
-                                            id: '1224',
-                                            name: '岗位管理',
-                                            icon: 'el-icon-m-unchecked2',
-                                            url: '/main/t5'
                                         }
+                                        // ,
+                                        // {
+                                        //     id: '1222',
+                                        //     name: '二级管理员',
+                                        //     icon: 'el-icon-m-unchecked2',
+                                        //     url: '/main'
+                                        // },
+                                        // {
+                                        //     id: '1223',
+                                        //     name: '系统管理员',
+                                        //     icon: 'el-icon-m-unchecked2',
+                                        //     url: '/main'
+                                        // },
+                                        // {
+                                        //     id: '1224',
+                                        //     name: '岗位管理',
+                                        //     icon: 'el-icon-m-unchecked2',
+                                        //     url: '/main'
+                                        // }
                                     ]
                                 }
                             ]
@@ -169,24 +171,24 @@ export default {
                     icon: 'el-icon-m-toolkit',
                     url: '/main/test2',
                     second: [
-                        {
-                            id: '21',
-                            name: '开发工具1',
-                            icon: 'el-icon-m-unchecked2',
-                            url: '/main/t6'
-                        },
-                        {
-                            id: '22',
-                            name: '开发工具2',
-                            icon: 'el-icon-m-unchecked2',
-                            url: '/main/t7'
-                        },
-                        {
-                            id: '23',
-                            name: '开发工具3',
-                            icon: 'el-icon-m-unchecked2',
-                            url: '/main/t8'
-                        }
+                        // {
+                        //     id: '21',
+                        //     name: '开发工具1',
+                        //     icon: 'el-icon-m-unchecked2',
+                        //     url: '/main/'
+                        // },
+                        // {
+                        //     id: '22',
+                        //     name: '开发工具2',
+                        //     icon: 'el-icon-m-unchecked2',
+                        //     url: '/main/'
+                        // },
+                        // {
+                        //     id: '23',
+                        //     name: '开发工具3',
+                        //     icon: 'el-icon-m-unchecked2',
+                        //     url: '/main/'
+                        // }
                     ]
                 },
                 {
@@ -195,24 +197,24 @@ export default {
                     icon: 'el-icon-m-cog',
                     url: '/main/test3',
                     second: [
-                        {
-                            id: '31',
-                            name: '通用业务1',
-                            icon: 'el-icon-m-unchecked2',
-                            url: '/main/t9'
-                        },
-                        {
-                            id: '32',
-                            name: '通用业务2',
-                            icon: 'el-icon-m-unchecked2',
-                            url: '/main/t11'
-                        },
-                        {
-                            id: '33',
-                            name: '通用业务3',
-                            icon: 'el-icon-m-unchecked2',
-                            url: '/main/t12'
-                        }
+                        // {
+                        //     id: '31',
+                        //     name: '通用业务1',
+                        //     icon: 'el-icon-m-unchecked2',
+                        //     url: '/main/'
+                        // },
+                        // {
+                        //     id: '32',
+                        //     name: '通用业务2',
+                        //     icon: 'el-icon-m-unchecked2',
+                        //     url: '/main/'
+                        // },
+                        // {
+                        //     id: '33',
+                        //     name: '通用业务3',
+                        //     icon: 'el-icon-m-unchecked2',
+                        //     url: '/main/'
+                        // }
                     ]
                 }
             ];

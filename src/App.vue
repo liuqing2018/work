@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import './assets/iconfont/iconfont.css';
+//    import './assets/iconfont/iconfont.css';
     export default {
         name: 'App',
         created () {

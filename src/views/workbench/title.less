@@ -1,0 +1,52 @@
+@import "../../assets/css/modules/variables";
+@import "../../assets/css/modules/function";
+.listCon{
+  .radius ( @radius: 3px );
+  background: @color-fff;
+  border:1px solid @border-color;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+h3 {
+  border-bottom: 1px solid @border-color;
+  overflow: hidden;
+  font-weight: normal;
+  > span {
+    float: left;
+    border-bottom: 2px solid @brand-primary;
+    padding-bottom: 13px;
+
+  }
+  small {
+    float: right;
+    i{
+      cursor: pointer;
+      font-size: 18px;
+      color: @color-ccc;
+    }
+    i:hover{
+      color: @brand-primary;
+    }
+    article{
+      display: inline-block;
+      span{
+        color: @border-color;
+      }
+      button{
+        background: rgba(204,204,204,.2);
+        .radius ( @radius: 3px );
+        border: 1px solid @brand-primary;
+        color:@brand-primary;
+        height: 21px;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+      button:hover{
+        background:@brand-primary;
+        color: @color-fff;
+      }
+    }
+  }
+}
+
+
