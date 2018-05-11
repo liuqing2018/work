@@ -2,7 +2,7 @@
  * Created by liuqing on 2018/4/30.
  */
 
-// import {http} from '../../assets/js/http';
+import {http} from '../../assets/js/http';
 export default {
     namespace: true,
     state: {

@@ -1,8 +1,7 @@
 /**
  * Created by liuqing on 2018/4/30.
  */
-
-// import {http} from '../../assets/js/http';
+import http from '../../assets/js/ajax';
 export default {
     namespace: true,
     state: {
@@ -216,6 +215,27 @@ export default {
                     ]
                 }
             ];
+
+            // 获取ajax数据测试
+
+            http.get('/api/user/info?d=29', {}, {
+                params: {a: 12, b: 20}
+            }).then(data => {
+                console.log(data);
+            });
+
+            // application/x-www-form-urlencoded;charset=utf-8
+            // application/json;charset=UTF-8
+            http.post('/api/user/info', {a: 'leo', b: 12, c: 233}, {
+                headers: {
+                    // 'Content-Type': 'application/json'
+                }
+            }
+            ).then(data => {
+                console.log(data);
+            }, err => {
+                console.log(err);
+            });
             commit('getMenu', menus);
         }
     }

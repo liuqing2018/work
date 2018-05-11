@@ -81,7 +81,6 @@
             }
         },
         created () {
-            this.$toast('this is test....');
         },
         mounted () {
             // 判断地址栏有没有路由信息，如果则打开相关的页面

@@ -3,7 +3,8 @@
  */
 import copyObj from './copyObj'; // 复制对象
 import dateFmt from './date'; // 格式化日期
-import http from './http'; // 封装axios
+// import http from './http'; // 封装axios
+import http from './ajax'; // 封装axios
 import toast from './toast'; // 提示框
 import upload from './upload'; // 文件转base64
 

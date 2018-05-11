@@ -1,7 +1,7 @@
 <template>
     <div class="app-header">
         <div class="app-title">
-            <img class="app-logo" src="../../assets/img/logo.png" alt="CIC智讯铁路标准开发平台">
+            <img class="app-logo" src="../../../static/img/logo.png" alt="CIC智讯铁路标准开发平台">
             <h3><strong>CIC智讯</strong>铁路标准开发平台</h3>
         </div>
         <div class="app-header-option">
@@ -30,7 +30,7 @@
                 <li class="app-header-user" @mouseenter="handleShowSubMenu"
                     @mouseleave="handleHideSubMenu">
                     <div class="avatar-wrap">
-                        <img src="../../assets/img/avatar.jpg" alt="">
+                        <img src="../../../static/img/avatar.jpg" alt="">
                     </div>
                     陈子龙
                     <i class="el-icon-m-more"></i>
