@@ -4,9 +4,10 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import store from './vuex/index';
-// import filters from './filters/index'
+import filters from './filter/index.js';
+
 // import diy plugins
-import Utils from './assets/js/utils';
+import Plugin from './plugin/plugins';
 
 // import element-ui modules
 import {
@@ -48,9 +49,9 @@ import {
 import 'element-ui/lib/theme-chalk/index.css';
 
 // Vue.filter('trim', filters.trim);
-// Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));
+Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));
 
-Vue.use(Utils);
+Vue.use(Plugin);
 // begin CW add component
 Vue.use(Row);
 Vue.use(Col);

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-import { API } from './common';
+import { API } from '../assets/js/common';
 import toast from './toast';
 
 // - 通用配置项
@@ -9,6 +9,7 @@ const Axios = axios.create({
     timeout: 10000,
     responseType: 'json',
     withCredentials: true,
+    postJson: true, // Post提交数据 true为json对象，false序列化字符串
     retry: 5, // 请求次数
     retryDelay: 3000, // 请求间隔
     headers: {
@@ -21,18 +22,11 @@ const Axios = axios.create({
 // 统一处理请求
 Axios.interceptors.request.use(
     config => {
-        console.log('====== config ==========');
-        console.log(config);
-        // 在发送请求之前做某件事
-        if (
-            config.method === 'post' ||
-            config.method === 'put' ||
-            config.method === 'delete'
-        ) {
-            // 序列化
-            // config.data = qs.stringify(config.data);
-            console.log(config.data);
-            console.log(qs);
+        // post提交的时候判断后端需要的数据类型: form data || json
+        if ((config.method === 'post' || config.method === 'put' || config.method === 'delete') && config.postJson) {
+            config.headers['Content-Type'] = 'application/json;charset=UTF-8';
+        } else {
+            config.data = qs.stringify(config.data);
         }
 
         // 若是有做鉴权token , 就给头部带上token
@@ -100,6 +94,10 @@ Axios.interceptors.response.use(
 
 const apiAxios = (method, url, data, params) => {
     return new Promise((resolve, reject) => {
+        if (method === 'GET') {
+            params = data;
+            data = {};
+        }
         let options = {
             method,
             url,

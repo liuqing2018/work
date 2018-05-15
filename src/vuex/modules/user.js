@@ -2,7 +2,7 @@
  * Created by Administrator on 2018/4/23.
  */
 
-import http from '../../assets/js/http';
+import http from '../../plugin/http';
 export default {
     namespace: true,
 

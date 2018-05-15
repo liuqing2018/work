@@ -28,6 +28,7 @@
     import AppNav from './AppNav.vue'; // 左边导航菜单
     import AppTab from './AppTab.vue'; // 框架选项卡
     import { mapState, mapActions } from 'vuex';
+
     export default {
         name: 'main-content',
         data () {
