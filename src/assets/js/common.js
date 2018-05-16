@@ -14,3 +14,12 @@ export const API = process.env.API_ROOT;
 export const getType = obj => {
     return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
 };
+
+/**
+ * 首字母大写
+ * @param str
+ * @returns {string}
+ */
+export const capitalizeFirstLetter = str => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+};

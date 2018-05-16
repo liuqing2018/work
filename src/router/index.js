@@ -79,7 +79,7 @@ const router = new Router({
                 {
                     path: '403',
                     name: 'page403',
-                    component: resolve => require(['@/components/403.vue'], resolve)
+                    component: resolve => require(['@/views/error/403.vue'], resolve)
                 }
             ]
         }

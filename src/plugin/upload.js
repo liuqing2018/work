@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2018/5/8.
  */
+// todo 1，同时支持上传文件和图片；2，支持多文件上传
 const upload = function (file, callback) {
     // var file = e.target.files || e.dataTransfer.files;
     if (file) {
