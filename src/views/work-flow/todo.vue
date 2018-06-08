@@ -3,6 +3,8 @@
         <h3>待办事项</h3>
         <button class="c-btn c-primary" @click="handleClick">我是按钮</button>
         <div>===={{num}}</div>
+        <span class="need-before">测试3</span>
+        <label class="need-before">测试1</label>
     </div>
 </template>
 <script>

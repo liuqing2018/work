@@ -1,0 +1,63 @@
+/*
+    # 选项卡
+    使用方式：### 引入c-tab的元素最好是块元素
+        1.用ul、li和h3标签方式布局，只需要给ul指定class为c-tab即可
+           <ul>
+                <li class="active">
+                    <h3>选项一</h3>
+                </li>
+                <li>
+                    <h3>选项二</h3>
+                </li>
+            </ul>
+
+        2.使用其他标签，如div嵌套，或者其他标签嵌套
+            <div class="c-tab">
+                <div class="c-tab-item active">
+                    <a class="c-tab-title">选项一</a>
+                </div>
+                <div class="c-tab-item">
+                    <p class="c-tab-title">选项二</p>
+                </div>
+            </div>
+*/
+.c-tab {
+    position: relative;
+    height: 34px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid @border-color;
+    .clearfix;
+
+    .c-tab-item,
+    & > li {
+        float: left;
+        background: none;
+
+        .c-tab-title,
+        & > h3 {
+            position: relative;
+            display: inline-block;
+            height: 34px;
+            padding: 0 10px;
+            font-size: 16px;
+            line-height: 34px;
+            text-align: center;
+            font-weight: normal;
+            color: @text-color;
+            cursor: pointer;
+
+            &:hover {
+                color: @brand-primary;
+                border-bottom: 2px solid @brand-primary;
+            }
+        }
+
+        &.active {
+            .c-tab-title,
+            & > h3  {
+                color: @brand-primary;
+                border-bottom: 2px solid @brand-primary;
+            }
+        }
+    }
+}

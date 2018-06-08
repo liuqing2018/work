@@ -38,15 +38,25 @@
     .translate(0, -50%);
 }
 
-
-
+// 高度和宽度100%
 .inner {
+    height: 100%;
+    width: 100%;
+}
+
+// 宽度100%
+.x-inner {
+    width: 100%;
+}
+
+// 高度100%
+.y-inner {
     height: 100%;
 }
 
 
 // 必填项
-.need,
+.need:before,
 .need-before:before,
 .need-after:after {
     font-style: normal;
@@ -57,6 +67,7 @@
 }
 
 // 星号在前面
+.need:before,
 .need-before {
     &:before {
         padding-right: 2px;

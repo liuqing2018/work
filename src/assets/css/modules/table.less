@@ -1,4 +1,16 @@
-/* 表格 */
+/*
+    # 表格
+    使用方式：
+        <table class="c-table c-stripe c-hover c-border c-state">
+            ...
+        </table>
+     - c-table 表格的基础样式
+     - c-stripe 隔行变色
+     - c-hover 移入变色
+     - c-border 带边框的表格
+     - c-state 自定义背景颜色 加入primary info warning danger success
+    以上class属性，不分先后
+*/
 .c-table {
     width: 100%;
     text-align: @table-text-algin;
@@ -8,13 +20,13 @@
     th {
         white-space: nowrap;
         text-overflow: ellipsis;
-        overflow: hidden;
         border: 1px solid @border-color;
+        overflow: hidden;
     }
 
     thead {
         width: inherit;
-        background-color: @table-th-bg;
+        background: @table-th-bg;
 
         th,
         td {
@@ -24,8 +36,9 @@
             font-size: 16px;
             font-weight: normal;
             text-align: @table-th-text-algin;
-            color: @color-000;
+            color: @table-th-color;
         }
+
     }
 
     tbody {
@@ -33,30 +46,67 @@
             font-size: 14px;
             letter-spacing: 1px;
             text-align: @table-td-text-algin;
-            color: @color-333;
+            color: @table-td-color
         }
 
         tr {
             //height: 40px;
             height: 45px;
 
-            &:nth-child(even) {
-                background-color: @table-td-bg;
+            &:nth-child(even) { background-color: @table-td-bg; }
+        }
+    }
+
+    &.c-hover {
+        tbody {
+            tr {
+                &:hover { background-color: @table-td-hover-color; }
             }
         }
     }
 
-    &.c-table-hover {
+    &.c-stripe {
         tbody {
             tr {
-                &:nth-child(even) {
-                    background-color: @table-td-hover-color;
-                }
-
-                &:hover {
-                    background-color: @table-td-hover-color;
-                }
+                &:nth-child(even) { background-color: @table-td-hover-color; }
             }
         }
+    }
+
+    &.c-border {
+        tbody {
+            td,
+            th { border: 1px solid @table-border-color; }
+        }
+    }
+
+    &.c-state {
+        tbody {
+            tr.primary {
+                background-color: @brand-primary;
+                & > td { color: @color-fff; }
+            }
+
+            tr.info {
+                background-color: @brand-info;
+                & > td { color: @color-fff; }
+            }
+
+            tr.warning {
+                background-color: @brand-warning;
+                & > td { color: @color-fff; }
+            }
+
+            tr.danger {
+                background-color: @brand-danger;
+                & > td { color: @color-fff; }
+            }
+
+            tr.success {
+                background-color: @brand-success;
+                & > td { color: @color-fff; }
+            }
+        }
+
     }
 }

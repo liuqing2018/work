@@ -1,5 +1,6 @@
-/* ========= 系统基本颜色 ========= */
-
+/*
+* less 常量
+*/
 // 主题色
 @brand-primary: #0094da;
 
@@ -13,7 +14,7 @@
 @brand-info: #5bc0de;
 
 // 警告信息
-@brand-warning: #f47564;
+@brand-warning: #e79d47; // #f47564;
 
 // 错误信息
 @brand-danger: #f00;
@@ -60,35 +61,32 @@
 //字体类型
 @font-family: "Microsoft Yahei", "微软雅黑", STXihei, "Meiryo UI", Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", "Hiragino Kaku Gothic Pro", "Arial Unicode MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-// 字体大小
+// 全局字体大小
 @font-size: 14px;
 
 // 占位符颜色
 @placeholder-color: #b5b6b6;
 
-// 表格背景颜色
-@table-bg: @color-fff;
+// 表格
+@table-bg: @color-fff; // 表格背景颜色
 
-// 表格的边框颜色
-@table-border-color: #d2d5e3;
+@table-border-color: #d2d5e3; // 表格的边框颜色
 
-// 表格th的背景颜色
-@table-th-bg: @color-fff;
+@table-th-bg: rgba(0, 0, 0, .1); // 表格th的背景颜色
 
-// 表格td的背景颜色
-@table-td-bg: @color-fff;
+@table-td-bg: @color-fff; // 表格td的背景颜色
 
-// 移入表格td的背景颜色
-@table-td-hover-color: @table-td-bg - 15%;
+@table-td-hover-color: @table-td-bg - 15%; // 移入表格td的背景颜色
 
-// 表格的对齐方式
-@table-text-algin: center;
+@table-th-color: @color-333; // 标题th的文本颜色
 
-// 表格th的对齐方式
-@table-th-text-algin: center;
+@table-td-color: @text-color; // 标题td的文本颜色
 
-// 表格td的对齐方式
-@table-td-text-algin: center;
+@table-text-algin: center; // 表格文本对齐方式
+
+@table-th-text-algin: center; // 表格th的对齐方式
+
+@table-td-text-algin: center; // 表格td的对齐方式
 
 // 选项卡边框颜色
 @tab-border-color: @color-ccc;

@@ -75,7 +75,7 @@
         data () {
             return {
                 currentPage: 1,
-                pagesize: 5,
+                pagesize: 20,
                 formInline: {
                     user: '',
                     region: ''
@@ -153,6 +153,132 @@
                         value5: '女',
                         value6: '汉口动车组无线检修工区',
                         value7: '副主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
+                    },
+                    {
+                        value1: '汉口动车组无线检修工区',
+                        value2: 'wertyukjhg',
+                        value3: '启用',
+                        value4: '2018-05-03 09:30:66',
+                        value5: '男',
+                        value6: '汉口动车组无线检修工区',
+                        value7: '车间主任'
                     },
                     {
                         value1: '汉口动车组无线检修工区',

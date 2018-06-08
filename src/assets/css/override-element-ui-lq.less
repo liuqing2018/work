@@ -32,6 +32,10 @@
 	.app-menu-box > div >.el-submenu.is-active > .el-submenu__title {
 		background: #e2e2e2;
 		color: @brand-primary;
+
+		& > i {
+			color: @brand-primary;
+		}
 	}
 	// 有子菜单的菜单
 	.el-submenu__title {
@@ -57,5 +61,12 @@
 		&.is-active {
 			background: #e9e9e9;
 		}
+	}
+}
+
+// 框架的tab页面
+.app-tabs {
+	.el-tabs__header {
+		margin: 0;
 	}
 }

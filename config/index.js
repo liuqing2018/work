@@ -2,7 +2,8 @@
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
-const path = require('path')
+const path = require('path');
+const ips = require('./getIp');
 
 module.exports = {
     dev: {
@@ -13,7 +14,7 @@ module.exports = {
         // 配置代理信息
         proxyTable: {
             '/api': {
-                target: 'http://192.168.64.55:8088', // 接口中遇到api字段的时候会映射到：http://192.168.10.20, 需要后台配置允许跨域(api会被替换为空)
+                target: 'http://192.168.54.85:8088', // 接口中遇到api字段的时候会映射到：http://192.168.10.20, 需要后台配置允许跨域(api会被替换为空)
                 changeOrigin: true,  // 是否跨域
                 pathRewrite: {
                     '^/api': ''   // 需要rewrite的,
@@ -24,7 +25,7 @@ module.exports = {
 
         // Various Dev Server settings
         // host: 'localhost', // can be overwritten by process.env.HOST
-        host: '192.168.64.55', // can be overwritten by process.env.HOST
+        host: ips[0], // can be overwritten by process.env.HOST
         port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         autoOpenBrowser: false,
         errorOverlay: true,

@@ -117,6 +117,7 @@
         justify-content: space-between;
         align-items: center;
         flex-basis: 60px;
+        flex-shrink: 0;
         line-height: 60px;
         background: @brand-primary;
     }

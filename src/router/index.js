@@ -1,36 +1,17 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 Vue.use(Router);
-
 const router = new Router({
-    // mode: 'history',
+    mode: 'history',
     routes: [
         {
             path: '/',
-            name: 'index',
-            // component: resolve => require(['@/views/main/index.vue'], resolve),
-            redirect: { name: 'mian-default' },
-            meta: {
-                title: '工作台'
-            }
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: resolve => require(['@/views/main/index.vue'], resolve),
-            meta: {
-                title: '登录'
-            }
-        },
-        {
-            path: '/main',
             name: 'main',
             component: resolve => require(['@/views/main/index.vue'], resolve),
             children: [
                 {
                     path: '/',
                     name: 'mian-default',
-                    // component: resolve => require(['@/views/auth-management/index.vue'], resolve),
                     component: resolve => require(['@/views/workbench/WorkContent.vue'], resolve),
                     meta: {
                         title: '工作台'
@@ -39,9 +20,9 @@ const router = new Router({
                 {
                     path: 'index',
                     name: 'mian-index',
-                    component: resolve => require(['@/views/auth-management/index.vue'], resolve),
+                    redirect: {name: 'mian-default'},
                     meta: {
-                        title: '权限管理'
+                        title: '工作台'
                     }
                 },
                 {
@@ -76,51 +57,83 @@ const router = new Router({
                         title: '已办事项'
                     }
                 },
+
+                /*
+                * demo 路由
+                * */
+
+                {
+                    path: 'class',
+                    name: 'class',
+                    component: resolve => require(['@/views/demo/layout/Class.vue'], resolve),
+                    meta: {
+                        title: '公共类'
+                    }
+                },
+                {
+                    path: 'base',
+                    name: 'base',
+                    component: resolve => require(['@/views/demo/layout/Base.vue'], resolve),
+                    meta: {
+                        title: '基础布局'
+                    }
+                },
+
                 {
                     path: '403',
                     name: 'page403',
-                    component: resolve => require(['@/views/error/403.vue'], resolve)
+                    component: resolve => require(['@/views/error/403.vue'], resolve),
+                    meta: {
+                        title: '拒绝访问'
+                    }
+                },
+                {
+                    path: '*',
+                    name: 'page404',
+                    component: resolve => require(['@/views/error/404.vue'], resolve),
+                    meta: {
+                        title: '页面不存在'
+                    }
                 }
             ]
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: resolve => require(['@/views/login/index.vue'], resolve),
+            meta: {
+                title: '登录'
+            }
+        },
+        {
+            path: '*',
+            name: 'page404',
+            component: resolve => require(['@/views/error/404.vue'], resolve)
         }
-        // {
-        //     path: '/main/auth', // 权限管理-角色管理
-        //     name: 'auth',
-        //     component: resolve => require(['@/views/auth/index.vue'], resolve)
-        // },
-        // {
-        //     path: '/main/user', // 权限管理-用户管理
-        //     name: 'user',
-        //     component: resolve => require(['@/views/auth/user.vue'], resolve)
-        // },
-        // {
-        //     path: '403',
-        //     name: 'page403',
-        //     component: resolve => require(['@/components/403.vue'], resolve)
-        // }
-        // {
-        //     path: '*',
-        //     name: 'page404',
-        //     component: resolve => require(['@/components/404.vue'], resolve)
-        // }
-    ]
+    ],
+    scrollBehavior (to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        } else {
+            return {
+                x: 0,
+                y: 0
+            };
+        }
+    }
 });
 
 router.beforeEach((to, from, next) => {
-    // if (to.path === '/') { // 登录页面
-    //     next();
-    // } else {
-    //     if (window.sessionStorage.isLogin) { // 判断有没有登录的标识
-    //         next();
-    //     } else {
-    //         next('/'); // 跳转到登录
-    //     }
-    // }
-    next({
-        query: {
-            aa: new Date()
-        }
-    });
+    if (!to.query.r && to.path !== '/') {
+        next({
+            path: to.fullPath,
+            query: {
+                r: Math.random()
+            }
+        });
+    } else {
+        next();
+    }
 });
 
 export default router;

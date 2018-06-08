@@ -14,6 +14,8 @@ import Plugins from './plugin/plugins';
 // import components
 import './components/components';
 
+import 'babel-polyfill';
+
 // import element-ui modules
 import {
     Row,
@@ -48,7 +50,8 @@ import {
     Tooltip,
     Loading,
     MessageBox,
-    Message
+    Message,
+    Button
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -65,6 +68,7 @@ Vue.use(CarouselItem);
 Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Cascader);
+Vue.use(Button);
 // end CW add component
 Vue.use(Table);
 Vue.use(TableColumn);

@@ -6,7 +6,7 @@
                 :key="index"
                 :label="item.title"
                 :name="item.path"
-                :closable="item.path !== '/main'"
+                :closable="item.path !== '/'"
             >
             </el-tab-pane>
         </el-tabs>
@@ -41,7 +41,7 @@
 
             // 移除选项卡
             handleRemoveTab (tabName) {
-                if (tabName === '/main') {
+                if (tabName === '/') {
                     return;
                 }
 
@@ -49,12 +49,12 @@
                 this.tabList.forEach((tab, index) => {
                     if (tab.path === tabName) {
                         let nextTab = this.tabList[index + 1] || this.tabList[index - 1];
-                        if (nextTab && nextTab.path !== '/main') {
+                        if (nextTab && nextTab.path !== '/') {
                             this.$router.push({path: nextTab.path});
                             // this.$store.commit('setActiveTab', nextTab.path);
                         } else {
-                            this.$store.commit('setActiveTab', '/main');
-                            // this.$router.push({path: '/main'});
+                            this.$store.commit('setActiveTab', '/');
+                            // this.$router.push({path: '/'});
                         }
                     }
                 });

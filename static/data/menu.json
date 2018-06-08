@@ -1,0 +1,78 @@
+{
+    "status": 0,
+    "message": "查询数据成功！",
+    "result": [
+        {
+            "id": "1",
+            "name": "布局模块",
+            "icon": "el-icon-m-layout",
+            "url": "layout-module",
+            "second": [
+                {
+                    "id": "2",
+                    "name": "公共类",
+                    "icon": "el-icon-m-module",
+                    "url": "/class",
+                    "second": []
+                },
+                {
+                    "id": "3",
+                    "name": "基础布局",
+                    "icon": "el-icon-m-layout",
+                    "url": "/base",
+                    "second": []
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "name": "方法模块",
+            "icon": "el-icon-m-function",
+            "url": "function-module",
+            "second": []
+        },
+        {
+            "id": "5",
+            "name": "组件模块",
+            "icon": "el-icon-m-modules",
+            "url": "component-module",
+            "second": [
+                {
+                    "id": "6",
+                    "name": "文件上传",
+                    "icon": "el-icon-m-upload",
+                    "url": "/upload",
+                    "second": []
+                },
+                {
+                    "id": "7",
+                    "name": "富文本编辑器",
+                    "icon": "el-icon-m-text",
+                    "url": "/ueditor",
+                    "second": []
+                },
+                {
+                    "id": "8",
+                    "name": "图表",
+                    "icon": "el-icon-m-bar-chart",
+                    "url": "/echarts",
+                    "second": []
+                },
+                {
+                    "id": "9",
+                    "name": "拖拽",
+                    "icon": "el-icon-m-move",
+                    "url": "/drag",
+                    "second": []
+                },
+                {
+                    "id": "10",
+                    "name": "地图",
+                    "icon": "el-icon-m-map",
+                    "url": "/map",
+                    "second": []
+                }
+            ]
+        }
+    ]
+}

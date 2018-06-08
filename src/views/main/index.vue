@@ -9,14 +9,18 @@
             <app-nav></app-nav>
             <!-- 侧边菜单 End -->
 
-            <div class="main-right">
+            <div class="app-right">
                 <!-- 框架tab页面 Start -->
                 <app-tab></app-tab>
                 <!-- 框架tab页面 End -->
-
                 <!-- 页面内容 Start -->
-                <div class="main-content">
-                    <router-view></router-view>
+                <div class="app-right-content">
+                    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
+                        <!-- 缓存组件的状态，避免重复渲染-->
+                        <keep-alive>
+                            <router-view></router-view>
+                        </keep-alive>
+                    </transition>
                 </div>
                 <!-- 页面内容 End -->
             </div>
@@ -82,10 +86,11 @@
             }
         },
         created () {
+            this.$toast('这是一个测试');
         },
         mounted () {
             // 判断地址栏有没有路由信息，如果则打开相关的页面
-            if (!(this.$route.fullPath === '/' || this.$route.fullPath === '/main/' || this.$route.fullPath === '/main')) {
+            if (!(this.$route.fullPath === '/')) {
                 // 添加tab
                 console.log('refresh...');
                 this.$store.commit('addTabMenu', {
@@ -120,27 +125,39 @@
     @import "../../assets/css/modules/variables";
     @import "../../assets/css/modules/function";
 
+    @app-tabs-height: 41px;
+
     .app-container {
         display: flex;
         align-items: stretch;
         flex-direction: column;
-        min-height: 100%;
+        height: 100%;
 
+        // 左侧导航和右侧内容的父级
         .app-content {
             display: flex;
             flex-flow: row nowrap;
             flex: 1 1 auto;
+            height: 100%;
+            overflow: auto;
         }
 
-        .main-right {
+        // 右侧包含Tab选项卡的父级
+        .app-right {
             flex-grow: 1;
             overflow: hidden;
         }
 
-        .main-content {
-            height: 100%;
+        .app-tabs {
+            height: @app-tabs-height;
+        }
+
+        // 右侧内容区域
+        .app-right-content {
+            height: calc(~"100% - @{app-tabs-height}");
             padding: 20px;
             background: #f5f7fa;
+            overflow: auto;
         }
     }
 </style>

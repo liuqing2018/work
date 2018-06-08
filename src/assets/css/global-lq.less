@@ -4,42 +4,26 @@
 	padding: 20px;
 	background: #fff;
 	overflow-y: auto;
-
-	.c-header {
-		position: relative;
-		height: 60px;
-		padding: 0 20px;
-		font-size: 18px;
-		color: #919ab7;
-		box-shadow: 0 5px 10px #e7e7e7;
-
-		& > button {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-		}
-	}
-
-	.w100p {
-		width: 100%;
-	}
-
+	border:1px solid @border-color;
 }
 
-.primary-color {
+.c-headline {
+	position: relative;
+	height: 40px;
+	padding: 0 5px;
+	line-height: 40px;
+	font-size: 18px;
+	text-align: left;
 	color: @brand-primary;
-	color: #555e71;
-	color: #6c7993;
+	//background: @color-fff;
+	border-radius: 5px 5px 0 0;
+	border-bottom: 2px solid @border-color;
 }
 
-.warn-color {
-	color: @brand-warning;
-}
+.primary-color { color: @brand-primary; }
 
-.primary-bg {
-	background: @brand-primary;
-}
+.warn-color { color: @brand-warning; }
 
-.warn-bg {
-	background: @brand-warning;
-}
+.primary-bg { background: @brand-primary; }
+
+.warn-bg { background: @brand-warning; }

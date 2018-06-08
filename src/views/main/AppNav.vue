@@ -1,5 +1,5 @@
 <template>
-    <div :class="{'main-left active': vm.isMenuVisible, 'main-left': !vm.isMenuVisible}">
+    <div :class="{'app-left active': vm.isMenuVisible, 'app-left': !vm.isMenuVisible}">
         <h3 class="menu-title">
             <span v-show="!vm.isMenuVisible">
                 <i class="el-icon-m-home"></i>工作台
@@ -8,7 +8,7 @@
         </h3>
         <div class="app-menu">
             <el-menu class="app-menu-box" :default-active="activeMenu" :collapse="vm.isMenuVisible" :unique-opened="true"  @open="handleOpen" @close="handleClose">
-            <!--<el-menu class="main-menu-box" :default-active="activeMenu" :collapse="vm.isMenuVisible" :unique-opened="true" text-color="#6c7993" active-text-color="#555e71" @open="handleOpen" @close="handleClose">-->
+                <!--<el-menu class="main-menu-box" :default-active="activeMenu" :collapse="vm.isMenuVisible" :unique-opened="true" text-color="#6c7993" active-text-color="#555e71" @open="handleOpen" @close="handleClose">-->
                 <sub-menu :menuList="menuList"></sub-menu>
             </el-menu>
         </div>
@@ -68,12 +68,13 @@
 </script>
 <style lang="less" rel="stylesheet/less">
     @import "../../assets/css/modules/variables.less";
-    .main-left {
+    .app-left {
         position: relative;
         flex-basis: 260px;
         flex-shrink: 0;
         background: @color-fff;
         transition: all ease .2s;
+        overflow-y: auto;
 
         &.active {
             flex-basis: 54px;

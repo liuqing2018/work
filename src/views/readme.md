@@ -12,3 +12,4 @@
 
 - organization-management： 组织管理
     - user.vue 用户管理
+- error： 异常页面
