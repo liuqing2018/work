@@ -47,9 +47,8 @@
             ]),
 
             handleOpen (index, keyPath) {
-                console.log(index);
-                console.log(keyPath);
             },
+
             handleClose (key, keyPath) {
                 console.log(key);
                 console.log(keyPath);

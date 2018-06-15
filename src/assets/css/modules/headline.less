@@ -1,0 +1,39 @@
+.c-headline {
+	position: relative;
+	height: 40px;
+	padding: 0 5px;
+	line-height: 40px;
+	font-size: 18px;
+	text-align: left;
+	color: @brand-primary;
+	//background: @color-fff;
+	border-radius: 5px 5px 0 0;
+	border-bottom: 2px solid @border-color;
+
+	&.c-prefix {
+		&:before {
+			content: "";
+			position: relative;
+			left: -5px;
+			display: inline-block;
+			width: 4px;
+			height: 65%;
+			//line-height: 40px;
+			clear: both;
+			vertical-align: middle;
+			background: @brand-primary;
+		}
+	}
+
+	&.c-border {
+		// border-bottom: 2px solid @border-color;
+	}
+
+	&.c-no-border {
+		 border-bottom: none;
+	}
+
+	&.c-bg {
+		background: #f8f8f8;
+	}
+}

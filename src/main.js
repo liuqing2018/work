@@ -8,11 +8,14 @@ import store from './vuex/index';
 // import filters
 import './filter/index.js';
 
+// import directives
+import directives from './directive/index';
+
 // import plugins
-import Plugins from './plugin/plugins';
+import Plugins from './plugin/index';
 
 // import components
-import './components/components';
+import './components/index';
 
 import 'babel-polyfill';
 
@@ -56,7 +59,10 @@ import {
 
 import 'element-ui/lib/theme-chalk/index.css';
 
+import vueDragDrag from 'vue-dragdrag';
+Vue.use(vueDragDrag);
 Vue.use(Plugins);
+Vue.use(directives);
 // begin CW add component
 Vue.use(Row);
 Vue.use(Col);

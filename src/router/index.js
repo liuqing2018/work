@@ -71,11 +71,76 @@ const router = new Router({
                     }
                 },
                 {
-                    path: 'base',
-                    name: 'base',
-                    component: resolve => require(['@/views/demo/layout/Base.vue'], resolve),
+                    path: 'layout',
+                    name: 'layout',
+                    component: resolve => require(['@/views/demo/layout/layout.vue'], resolve),
                     meta: {
-                        title: '基础布局'
+                        title: '常用布局'
+                    }
+                },
+                {
+                    path: 'function',
+                    name: 'function',
+                    component: resolve => require(['@/views/demo/function/index.vue'], resolve),
+                    meta: {
+                        title: '方法说明'
+                    }
+                },
+                {
+                    path: 'function/copy',
+                    name: 'function-copy',
+                    component: resolve => require(['@/views/demo/function/CopyObj.vue'], resolve),
+                    meta: {
+                        title: '对象拷贝'
+                    }
+                },
+                {
+                    path: 'function/http',
+                    name: 'function-http',
+                    component: resolve => require(['@/views/demo/function/Http.vue'], resolve),
+                    meta: {
+                        title: '数据交互'
+                    }
+                },
+                {
+                    path: 'function/localStorage',
+                    name: 'function-localStorage',
+                    component: resolve => require(['@/views/demo/function/LocalStorage.vue'], resolve),
+                    meta: {
+                        title: '本地存储'
+                    }
+                },
+                {
+                    path: 'function/toast',
+                    name: 'function-toast',
+                    component: resolve => require(['@/views/demo/function/Toast.vue'], resolve),
+                    meta: {
+                        title: '弹条提示'
+                    }
+                },
+                {
+                    path: 'function/unique',
+                    name: 'function-unique',
+                    component: resolve => require(['@/views/demo/function/UniqueArray.vue'], resolve),
+                    meta: {
+                        title: '数组去重'
+                    }
+                },
+                {
+                    path: 'function/upload',
+                    name: 'function-upload',
+                    component: resolve => require(['@/views/demo/function/Upload.vue'], resolve),
+                    meta: {
+                        title: '文件上传'
+                    }
+                },
+
+                {
+                    path: 'line',
+                    name: 'line',
+                    component: resolve => require(['@/views/demo/component/charts/line.vue'], resolve),
+                    meta: {
+                        title: '折线图'
                     }
                 },
 

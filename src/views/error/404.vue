@@ -7,6 +7,8 @@
                 <el-button type="primary" size="large">返回首页</el-button>
             </router-link>
             <el-button class="error-btn" type="primary" size="large" @click="goBack">返回上一页</el-button>
+
+            <button class="c-btn c-primary" type="button">返回首页</button>
         </div>
     </div>
 </template>

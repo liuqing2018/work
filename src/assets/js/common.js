@@ -1,10 +1,14 @@
 /**
  * Created by Administrator on 2018/5/8.
  */
-
-// export const API = 'http://192.168.54.151:8080';
+console.log('===========');
+console.log(process.env);
 // 生产环境和开发环境的接口地址
-export const API = process.env.API_ROOT;
+export const baseURL = process.env.API_ROOT;
+// export const baseURL = 'http://192.168.54.151:8080';
+
+// 上传文件默认限制的大小: 2M
+export const maxSize = 1024 * 2;
 
 /**
  * 获取对象类型

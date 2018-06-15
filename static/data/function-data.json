@@ -1,0 +1,71 @@
+{
+    "status": 0,
+    "message": "查询数据成功！",
+    "result": [
+        {
+            "id": 1,
+            "fname": "copyObj",
+            "cname": "对象拷贝",
+            "description": "阻断对象赋值给另外一个对象时引用指向同一个地址问题",
+            "bind": "Y",
+            "url": "/function/copy"
+        },
+        {
+            "id": 2,
+            "fname": "http",
+            "cname": "数据交互",
+            "description": "类似$ajax和$http",
+            "bind": "Y",
+            "url": "/function/http"
+        },
+        {
+            "id": 3,
+            "fname": "getItem/setItem",
+            "cname": "本地存储",
+            "description": "对localStorage的getItem和setItem的封装",
+            "bind": "Y",
+            "url": "/function/localStorage"
+        },
+        {
+            "id": 4,
+            "fname": "toast",
+            "cname": "弹条提示",
+            "description": "相关操作后给予操作者相关弹条提示",
+            "bind": "Y",
+            "url": "/function/toast"
+        },
+        {
+            "id": 5,
+            "fname": "uniqueArray",
+            "cname": "数组去重",
+            "description": "echarts图表填充或者数据过滤",
+            "bind": "Y",
+            "url": "/function/unique"
+        },
+        {
+            "id": 6,
+            "fname": "upload",
+            "cname": "文件上传",
+            "description": "支持文件转base64或者上传到服务器",
+            "bind": "N",
+            "url": "/function/upload"
+        },
+        {
+            "id": 7,
+            "fname": "echart",
+            "cname": "echart图表",
+            "description": "echart图表",
+            "bind": "N",
+            "url": "/function/echart"
+        },
+        {
+            "id": 8,
+            "fname": "moment",
+            "cname": "日期时间",
+            "description": "日期时间格式化",
+            "bind": "Y",
+            "url": "/function/moment"
+        }
+    ]
+}
+名称	类型	说明	必填参数	默认值

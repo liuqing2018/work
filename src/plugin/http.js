@@ -1,11 +1,11 @@
 import axios from 'axios';
 import qs from 'qs';
-import { API } from '../assets/js/common';
+import { baseURL } from '../assets/js/common';
 import toast from './toast';
-
+console.log('baseURL::: ' + baseURL);
 // - 通用配置项
 const Axios = axios.create({
-    baseURL: API,
+    baseURL: baseURL,
     timeout: 10000,
     responseType: 'json',
     withCredentials: true,
@@ -45,7 +45,7 @@ Axios.interceptors.request.use(
 Axios.interceptors.response.use(
     res => {
         // 处理响应数据
-        if (res.status && res.status === 200 && res.data.status === 1) {
+        if (res.status && res.status === 200 && res.data && res.data.status === 1) {
             toast(res.data.message);
             return Promise.reject(res.data.message);
         }

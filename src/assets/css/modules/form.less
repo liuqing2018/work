@@ -11,9 +11,14 @@
     .form-item,
     & > li {
         position: relative;
+        display: flex;
+        justify-content: center;
         padding: 0;
         margin-bottom: 10px;
-        display: flex;
+
+        &.center {
+
+        }
 
         // 左边文字标签
         .form-label,
@@ -34,7 +39,12 @@
             color: @color-666;
         }
 
-        input,
+        input[type="text"],
+        input[type="password"],
+        input[type="search"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="url"],
         select,
         textarea {
             width: 100%;
