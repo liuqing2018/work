@@ -1,29 +1,21 @@
-/**
- * Created by Administrator on 2018/5/16.
- */
-var data = [
-    {
+let obj = {
+    user: {
         name: 'leo',
-        age: 30
+        sex: 1
     },
-    {
-        name: 'leo',
-        age: 30
+    work: {
+        title: '工程师',
+        name2: '小米'
     },
-    {
-        name: 'leo',
-        age: 30
-    },
-    {
-        name: 'leo',
-        age: 30
-    },
-    {
-        name: 'leo',
-        age: 30
-    },
-];
+    age:11,
+    max: 12
+};
 
-for(let item of data.keys()) {
-    console.log(item);
-}
+let temp = obj.work;
+
+
+obj.work = obj.user;
+obj.user = temp;
+
+
+console.log(obj);

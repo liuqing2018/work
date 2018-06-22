@@ -44,7 +44,7 @@
                     },
                     methods: {
                         handleChange (e) {
-                            let result = fileCheck(e, ['image/png', 'image/gif', 'image/jpg', 'image/jpeg']);
+                            let result = checkFile(e, ['image/png', 'image/gif', 'image/jpg', 'image/jpeg']);
 
                             // 符合要求
                             if (result.status === 0) {
@@ -82,7 +82,7 @@
 </style>
 
 <script>
-    import fileCheck from '../../../assets/js/checkFile.js';
+    import checkFile from '../../../assets/js/checkFile.js';
     import fileToBase64 from '../../../assets/js/fileToBase64.js';
     export default {
         name: '',
@@ -95,7 +95,7 @@
         components: {},
         methods: {
             handleChange (e) {
-                let result = fileCheck(e, ['image/png', 'image/gif', 'image/jpg', 'image/jpeg']);
+                let result = checkFile(e, ['image/png', 'image/gif', 'image/jpg', 'image/jpeg']);
                 console.log(result);
                 // 符合要求
                 if (result.status === 0) {

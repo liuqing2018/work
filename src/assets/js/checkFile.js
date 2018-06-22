@@ -12,7 +12,7 @@ import {getType, maxSize} from './common';
  * @param e             通过input的file选择的文件       必填
  * @param fileType      允许上传文件的类型，默认不做限制  非必填
  * @param fileSize      上传文件最大限制，默认是2m大小    非必填
- * @returns {{status: number, fileList: Array, errorList: Array}}  status大于0 说明上传文件中有不符合要求的， fileList是符合要求的文件列表，errorList是不符合文件的错误提示列表
+ * @returns {status: number, data: Array}  status大于0 说明上传文件中有不符合要求的， 如果status==0，data里是符合要求的文件列表，否则是不符合文件的错误提示列表
  */
 const checkFile = function (e, fileType = null, fileSize = maxSize) {
     let files = e.target.files || e.dataTransfer.files;

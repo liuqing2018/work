@@ -134,6 +134,14 @@ const router = new Router({
                         title: '文件上传'
                     }
                 },
+                {
+                    path: 'function/echart',
+                    name: 'function-echart',
+                    component: resolve => require(['@/views/demo/function/Echart.vue'], resolve),
+                    meta: {
+                        title: 'echart图表'
+                    }
+                },
 
                 {
                     path: 'line',
