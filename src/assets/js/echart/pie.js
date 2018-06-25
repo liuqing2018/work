@@ -17,6 +17,9 @@ require('echarts/lib/component/title');
 // 引入工具箱组件
 require('echarts/lib/component/toolbox');
 
+// 引入图例组件
+require('echarts/lib/component/legendScroll');
+
 const pie = function (id, params) {
     // 初始化配置
     if (!params.legend) {
@@ -27,21 +30,19 @@ const pie = function (id, params) {
         params.toolbox = {};
     }
 
-    if (!params.grid) {
-        params.grid = {};
-    }
-
-
     let config = {
         title: params.title || '', // 图表标题
         xData: params.xData || [], // x轴数据
         yData: params.yData || [], // y轴数据
         colorData: params.colorData || colorData, // 颜色列表，依次循环
-        orient: params.orient || false, // 排列方式： true 水平，false 垂直
+        radius: params.radius || ['50%', '80%'], // 第一项是内半径，第二项是外半径 [0, '75%']
+        position: params.position || ['50%', '50%'], // 相对于坐标轴位置
+        labelLine: (params.labelLine === undefined ? true : params.labelLine), // 是否外围标签
 
         // legend 图例配置
         legend: {
-            show: params.legend.show || true, // 是否显示图例
+            show: (params.legend.show === undefined ? true : params.legend.show), // 是否显示图例
+            formatter: params.legend.formatter || '', // 格式化图例
             padding: params.legend.padding || [10, 100], // 图例的内填充，[上下, 左右]
             orient: params.legend.orient || 'horizontal', // 图例的排列方向：水平或者垂直'vertical'
             left: params.legend.left || 'center', // 整体图例的左边距
@@ -50,7 +51,7 @@ const pie = function (id, params) {
 
         // toolbox 工具箱配置
         toolbox: {
-            show: params.toolbox.show || true,
+            show: (params.toolbox.show === undefined ? true : params.toolbox.show), // 是否显示工具箱
 
             // 自定义的工具, 名字，只能以 my 开头, myToolboxs的格式如下
             // [
@@ -66,28 +67,55 @@ const pie = function (id, params) {
             myToolboxs: params.toolbox.myToolboxs, // 自定义工具
             right: params.toolbox.right || '3%', // 工具箱的右边距
             top: params.toolbox.top || 'auto' // 工具箱的上边距
-        },
-
-        // grid 网格 可绘制的图形为：折线图，柱状图，散点图（气泡图）
-        grid: {
-            top: params.grid.top || '10%',
-            right: params.grid.top || '4%',
-            bottom: params.grid.top || '6%',
-            left: params.grid.top || '1%'
         }
     };
 
     // 处理legend和series
     let legendData = [];
     let seriesData = [];
-    config.yData.forEach(function (item) {
-        legendData.push(item.name);
-
+    config.yData.forEach(function (item, index) {
         let serie = {};
         serie.name = item.name;
         serie.data = item.value;
-        serie.type = 'bar'; // 柱状图
+        serie.type = 'pie'; // 柱状图
+        serie.center = item.center || config.position;
 
+        item.value.forEach(function (data) {
+            legendData.push(data.name);
+        });
+
+        // 第一个取全局配置
+        if (index === 0) {
+            serie.radius = item.radius || config.radius;
+            if (config.yData.length > 1) {
+                serie.radius = item.radius || [0, '30%'];
+                config.labelLine = false;
+            }
+        } else {
+            serie.radius = item.radius || ['40%', '55%'];
+            if (config.yData.length > 1) {
+                config.labelLine = true;
+            }
+        }
+
+        serie.label = {
+            normal: {
+                show: true,
+                position: config.labelLine ? '' : 'inside',
+                formatter: (config.labelLine ? '{b} : {c} ({d}%)' : '{a}')
+                /*
+                 * a：series name
+                 * b: item name
+                 * c： value
+                 * d: percent
+                 * */
+            }
+        };
+        serie.labelLine = {
+            normal: {
+                show: config.labelLine
+            }
+        };
 
         seriesData.push(serie);
     });
@@ -165,34 +193,6 @@ const pie = function (id, params) {
                     }
                 },
 
-                // 动态类型切换
-                magicType: {
-                    // type: ['line', 'bar', 'stack', 'tiled'], //折线图、柱状图、堆叠图、平铺图
-                    type: ['bar', 'line'],
-
-                    // 设置工具栏切换图表类型对应的文字
-                    title: {
-                        line: '切换为折线图',
-                        bar: '切换为柱状图',
-                        stack: '切换为堆叠',
-                        tiled: '切换为平铺'
-                    },
-
-                    // 动态类型对应的图标: 可以通过 'image://url' 设置为图片，其中 URL 为图片的链接，或者 dataURI或者path设置
-                    icon: {},
-
-                    // 动态类型切换icon样式设置: 颜色、边框、阴影、模糊、透明度、文本设置
-                    iconStyle: {},
-
-                    // 鼠标移入到工具栏样式 同iconStyle
-                    emphasis: {
-                        iconStyle: {}
-                    },
-
-                    // 各个类型的专有配置
-                    option: {}
-                },
-
                 // 还原数据
                 restore: {
                     show: false
@@ -202,17 +202,9 @@ const pie = function (id, params) {
                 saveAsImage: {}
             }
         },
-        grid: {
-            top: config.grid.top,
-            right: config.grid.right,
-            bottom: config.grid.bottom,
-            left: config.grid.left,
-            containLabel: true // 区域是否包含坐标轴的刻度标签
-        },
 
         // 颜色列表
         color: config.colorData,
-
 
         // 设置系列
         series: seriesData
@@ -225,29 +217,10 @@ const pie = function (id, params) {
         });
     }
 
-    // 处理水平排列
-    if (config.orient) {
-        let temp = option.xAxis;
-        option.xAxis = option.yAxis;
-        option.yAxis = temp;
-
-        // 处理工具箱，不显示line了，因为数据没法看
-        if (config.toolbox.show) {
-            // option.toolbox.feature.magicType.type = ['bar'];
-        }
-    }
+    let pieChart = echarts.init(document.getElementById(id));
 
     // 返回echarts实例，用于别的操作，如getDataURL导出图片
-    // return echarts.init(document.getElementById(id)).setOption(option);
-
-    let pieChart = echarts.init(document.getElementById(id));
-    pieChart.setOption(option);
-
-    pieChart.on('magictypechanged', function (option) {
-        console.log(option);
-    });
-
-    return pieChart;
+    return pieChart.setOption(option);
 };
 
 export default pie;

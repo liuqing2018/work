@@ -18,6 +18,9 @@ require('echarts/lib/component/title');
 // 引入工具箱组件
 require('echarts/lib/component/toolbox');
 
+// 引入图例组件
+require('echarts/lib/component/legendScroll');
+
 const line = function (id, params) {
     // 初始化配置
     if (!params.legend) {
@@ -45,12 +48,12 @@ const line = function (id, params) {
         xData: params.xData || [], // x轴数据
         yData: params.yData || [], // y轴数据
         colorData: params.colorData || colorData, // 颜色列表，依次循环
-        smooth: params.smooth || true, // 平滑曲线显示
+        smooth: (params.smooth === undefined ? true : params.smooth), // 平滑曲线显示
         stack: params.stack || false, // 堆叠区域图
 
         // legend 图例配置
         legend: {
-            show: params.legend.show || true, // 是否显示图例
+            show: (params.legend.show === undefined ? true : params.legend.show), // 是否显示图例
             padding: params.legend.padding || [10, 100], // 图例的内填充，[上下, 左右]
             orient: params.legend.orient || 'horizontal', // 图例的排列方向：水平或者垂直'vertical'
             left: params.legend.left || 'center', // 整体图例的左边距
@@ -59,7 +62,7 @@ const line = function (id, params) {
 
         // toolbox 工具箱配置
         toolbox: {
-            show: params.toolbox.show || true,
+            show: (params.toolbox.show === undefined ? true : params.toolbox.show), // 是否显示工具箱
 
             // 自定义的工具, 名字，只能以 my 开头, myToolboxs的格式如下
             // [
