@@ -142,6 +142,14 @@ const router = new Router({
                         title: 'echart图表'
                     }
                 },
+                {
+                    path: 'function/moment',
+                    name: 'function-moment',
+                    component: resolve => require(['@/views/demo/function/Moment.vue'], resolve),
+                    meta: {
+                        title: '格式化日期'
+                    }
+                },
 
                 {
                     path: 'line',

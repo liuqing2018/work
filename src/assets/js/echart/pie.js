@@ -52,18 +52,7 @@ const pie = function (id, params) {
         // toolbox 工具箱配置
         toolbox: {
             show: (params.toolbox.show === undefined ? true : params.toolbox.show), // 是否显示工具箱
-
-            // 自定义的工具, 名字，只能以 my 开头, myToolboxs的格式如下
-            // [
-            //     {
-            //         show: true,
-            //         title: '工具的名称',
-            //         icon: '工具的图标，可以是path | base64',
-            //         onclick: function () {
-            //             alert('自定义方法');
-            //         }
-            //     }
-            // ]
+            // 自定义的工具, 参考地址 http://echarts.baidu.com/option.html#toolbox.feature
             myToolboxs: params.toolbox.myToolboxs, // 自定义工具
             right: params.toolbox.right || '3%', // 工具箱的右边距
             top: params.toolbox.top || 'auto' // 工具箱的上边距
@@ -164,31 +153,26 @@ const pie = function (id, params) {
                     buttonColor: '#e79d47',
                     buttonTextColor: '#fff',
                     optionToContent: function () {
-                        let axisData = config.xData;
-                        let series = seriesData;
-                        let table = '<table class="c-table c-stripe c-border c-hover"><thead><tr><th></th>';
-                        let seriesLen = series.length;
+                        let table = '<table class="c-table c-stripe c-border c-hover">';
 
                         // 处理表头
-                        for (let i = 0; i < seriesLen; i++) {
-                            table += '<th>' + series[i].name + '</th>';
-                        }
+                        seriesData.forEach(function (item) {
+                            // 设置系列标题
+                            table += '<tr><th colspan="' + (item.data.length + 1) + '">' + item.name + '</th></tr>';
 
-                        table += '</tr></thead><tbody>';
+                            // 设置系列内容
+                            let name = '<tr><th>名称</th>'; // 名称
+                            let value = '<tr><th>数据</th>'; // 值
+                            item.data.forEach(function (data) {
+                                name += '<td>' + data.name + '</td>';
+                                value += '<td>' + data.value + '</td>';
+                            });
+                            name += '</tr>';
+                            value += '</tr>';
+                            table += name + value;
+                        });
 
-                        // 处理内容
-                        for (let i = 0, len = axisData.length; i < len; i++) {
-                            table += '<tr><td>' + axisData[i] + '</td>';
-
-                            for (let j = 0; j < seriesLen; j++) {
-                                table += '<td>' + series[j].data[i] + '</td>';
-                            }
-
-                            table += '</tr>';
-                        }
-
-                        table += '</tbody></table>';
-
+                        table += '</table>';
                         return table;
                     }
                 },

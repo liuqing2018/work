@@ -88,7 +88,7 @@
                 },
                 {
                     "id": "4-10",
-                    "name": "日期时间",
+                    "name": "格式化日期",
                     "icon": "el-icon-m-time",
                     "url": "/function/moment",
                     "second": []
