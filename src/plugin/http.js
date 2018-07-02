@@ -2,7 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 import { baseURL } from '../assets/js/common';
 import toast from './toast';
-console.log('baseURL::: ' + baseURL);
+// console.log('baseURL::: ' + baseURL);
 // - 通用配置项
 const Axios = axios.create({
     baseURL: baseURL,

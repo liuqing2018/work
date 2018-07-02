@@ -61,29 +61,8 @@
         },
         methods: {
             ...mapActions([
-                'getMenu',
                 'addTabMenu'
-            ]),
-
-            handleOpen (key, keyPath) {
-                console.log(key, keyPath);
-            },
-            handleClose (key, keyPath) {
-                console.log(key, keyPath);
-            },
-
-            // 展开收起菜单
-            handleMenuToggle () {
-                this.vm.isMenuVisible = !this.vm.isMenuVisible;
-            },
-
-            // 跳转菜单
-            handleTo (item) {
-                this.$router.push({
-                    path: item.url,
-                    title: item.name
-                });
-            }
+            ])
         },
         created () {
             this.$toast('这是一个测试');
@@ -93,12 +72,15 @@
             if (!(this.$route.fullPath === '/')) {
                 // 添加tab
                 console.log('refresh...');
-                this.$store.commit('addTabMenu', {
-                    title: this.$route.meta.title,
-                    name: this.$route.name,
-                    path: this.$route.path
-                });
-                this.$store.commit('setActiveTab', this.$route.path);
+                // 如果没有设置在本页面内打开
+                if (this.$route.meta.isTab === undefined || this.$route.meta.isTab === false) {
+                    this.$store.commit('addTabMenu', {
+                        title: this.$route.meta.title,
+                        name: this.$route.name,
+                        path: this.$route.path
+                    });
+                    this.$store.commit('setActiveTab', this.$route.path);
+                }
             } else {
                 console.log('default page...');
             }
@@ -112,11 +94,15 @@
                 return tab.title === to.meta.title;
             })) {
                 console.log('existed...');
+                // this.$store.commit('setActiveTab', to.path);
             } else {
-                this.$store.commit('addTabMenu', {title: to.meta.title, name: to.name, path: to.path});
-                console.log('first open...');
+                // 如果设置了在当前页面中打开（非标签）
+                if (to.meta.isTab === undefined || to.meta.isTab === false) {
+                    this.$store.commit('addTabMenu', {title: to.meta.title, name: to.name, path: to.path});
+                    this.$store.commit('setActiveTab', to.path);
+                    console.log('first open...');
+                }
             }
-            this.$store.commit('setActiveTab', to.path);
             next();
         }
     };

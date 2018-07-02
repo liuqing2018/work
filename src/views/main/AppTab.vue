@@ -53,8 +53,8 @@
                             this.$router.push({path: nextTab.path});
                             // this.$store.commit('setActiveTab', nextTab.path);
                         } else {
-                            this.$store.commit('setActiveTab', '/');
-                            // this.$router.push({path: '/'});
+                            // this.$store.commit('setActiveTab', '/');
+                            this.$router.push({path: '/'});
                         }
                     }
                 });

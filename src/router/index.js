@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import demoRouter from './demo';
 Vue.use(Router);
-const router = new Router({
+
+let routerConfig = {
     mode: 'history',
     routes: [
         {
@@ -23,157 +25,6 @@ const router = new Router({
                     redirect: {name: 'mian-default'},
                     meta: {
                         title: '工作台'
-                    }
-                },
-                {
-                    path: 'auth', // 权限管理-角色管理
-                    name: 'auth',
-                    component: resolve => require(['@/views/auth-management/index.vue'], resolve),
-                    meta: {
-                        title: '角色管理'
-                    }
-                },
-                {
-                    path: 'user', // 组织管理-用户管理
-                    name: 'user',
-                    component: resolve => require(['@/views/organization-management/user.vue'], resolve),
-                    meta: {
-                        title: '用户管理'
-                    }
-                },
-                {
-                    path: 'todo',
-                    name: 'todo',
-                    component: resolve => require(['@/views/work-flow/todo.vue'], resolve),
-                    meta: {
-                        title: '待办事项'
-                    }
-                },
-                {
-                    path: 'done',
-                    name: 'done',
-                    component: resolve => require(['@/views/work-flow/done.vue'], resolve),
-                    meta: {
-                        title: '已办事项'
-                    }
-                },
-
-                /*
-                * demo 路由
-                * */
-
-                {
-                    path: 'class',
-                    name: 'class',
-                    component: resolve => require(['@/views/demo/layout/Class.vue'], resolve),
-                    meta: {
-                        title: '公共类'
-                    }
-                },
-                {
-                    path: 'layout',
-                    name: 'layout',
-                    component: resolve => require(['@/views/demo/layout/layout.vue'], resolve),
-                    meta: {
-                        title: '常用布局'
-                    }
-                },
-                {
-                    path: 'function',
-                    name: 'function',
-                    component: resolve => require(['@/views/demo/function/index.vue'], resolve),
-                    meta: {
-                        title: '方法说明'
-                    }
-                },
-                {
-                    path: 'function/copy',
-                    name: 'function-copy',
-                    component: resolve => require(['@/views/demo/function/CopyObj.vue'], resolve),
-                    meta: {
-                        title: '对象拷贝'
-                    }
-                },
-                {
-                    path: 'function/http',
-                    name: 'function-http',
-                    component: resolve => require(['@/views/demo/function/Http.vue'], resolve),
-                    meta: {
-                        title: '数据交互'
-                    }
-                },
-                {
-                    path: 'function/localStorage',
-                    name: 'function-localStorage',
-                    component: resolve => require(['@/views/demo/function/LocalStorage.vue'], resolve),
-                    meta: {
-                        title: '本地存储'
-                    }
-                },
-                {
-                    path: 'function/toast',
-                    name: 'function-toast',
-                    component: resolve => require(['@/views/demo/function/Toast.vue'], resolve),
-                    meta: {
-                        title: '弹条提示'
-                    }
-                },
-                {
-                    path: 'function/unique',
-                    name: 'function-unique',
-                    component: resolve => require(['@/views/demo/function/UniqueArray.vue'], resolve),
-                    meta: {
-                        title: '数组去重'
-                    }
-                },
-                {
-                    path: 'function/upload',
-                    name: 'function-upload',
-                    component: resolve => require(['@/views/demo/function/Upload.vue'], resolve),
-                    meta: {
-                        title: '文件上传'
-                    }
-                },
-                {
-                    path: 'function/echart',
-                    name: 'function-echart',
-                    component: resolve => require(['@/views/demo/function/Echart.vue'], resolve),
-                    meta: {
-                        title: 'echart图表'
-                    }
-                },
-                {
-                    path: 'function/moment',
-                    name: 'function-moment',
-                    component: resolve => require(['@/views/demo/function/Moment.vue'], resolve),
-                    meta: {
-                        title: '格式化日期'
-                    }
-                },
-
-                {
-                    path: 'line',
-                    name: 'line',
-                    component: resolve => require(['@/views/demo/component/charts/line.vue'], resolve),
-                    meta: {
-                        title: '折线图'
-                    }
-                },
-
-                {
-                    path: '403',
-                    name: 'page403',
-                    component: resolve => require(['@/views/error/403.vue'], resolve),
-                    meta: {
-                        title: '拒绝访问'
-                    }
-                },
-                {
-                    path: '*',
-                    name: 'page404',
-                    component: resolve => require(['@/views/error/404.vue'], resolve),
-                    meta: {
-                        title: '页面不存在'
                     }
                 }
             ]
@@ -202,19 +53,28 @@ const router = new Router({
             };
         }
     }
-});
+};
+
+// 合并demo路由
+let temp = routerConfig.routes[0].children.concat(demoRouter);
+routerConfig.routes[0].children = temp;
+console.log(routerConfig);
+// let allRouterConfig = routerConfig.routes[0].children.concat(demoRouter);
+
+const router = new Router(routerConfig);
 
 router.beforeEach((to, from, next) => {
-    if (!to.query.r && to.path !== '/') {
-        next({
-            path: to.fullPath,
-            query: {
-                r: Math.random()
-            }
-        });
-    } else {
-        next();
-    }
+    // if (!to.query.r && to.path !== '/') {
+    //     next({
+    //         path: to.fullPath,
+    //         query: {
+    //             r: Math.random()
+    //         }
+    //     });
+    // } else {
+    //     next();
+    // }
+    next();
 });
 
 export default router;

@@ -1,8 +1,8 @@
 {
-  "name": "CIC",
-  "version": "1.6.1",
-  "description": "CIC智讯铁路标准开发平台",
-  "author": "Linker",
+  "name": "zx-platform",
+  "version": "1.2.1",
+  "description": "CIC智讯铁路标准开发平台脚手架",
+  "author": "Link",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --open --progress --config build/webpack.dev.conf.js",
@@ -22,8 +22,6 @@
     "highlight.js": "^9.12.0",
     "moment": "^2.22.1",
     "multer": "^1.3.0",
-    "swiper": "^4.2.6",
-    "v-charts": "^1.16.24",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuedraggable": "^2.16.0"

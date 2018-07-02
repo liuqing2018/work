@@ -1,6 +1,6 @@
-# 铁路标准开发平台前端脚手架
+# 铁路标准开发平台
 
-> CIC智讯铁路标准开发平台
+> CIC智讯铁路标准开发平台脚手架
 
 ## Build Setup
 
@@ -25,6 +25,13 @@ npm run e2e
 
 # run all tests
 npm test
+```
+
+> 安装node-sass报错时，可以执行此操作
+
+```
+npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
