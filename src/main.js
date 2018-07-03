@@ -55,7 +55,11 @@ import {
     Loading,
     MessageBox,
     Message,
-    Button
+    Button,
+    Select,
+    Option,
+    DatePicker,
+    Tree
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -76,6 +80,10 @@ Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Cascader);
 Vue.use(Button);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(DatePicker);
+Vue.use(Tree);
 // end CW add component
 Vue.use(Table);
 Vue.use(TableColumn);
